@@ -1,7 +1,8 @@
-# chat-example
+# Magnt-web
 
-This is the source code for a very simple chat example used for 
-the [Getting Started](http://socket.io/get-started/chat/) guide 
-of the Socket.IO website.
+Full web app for Magnt.co. This application is currenty [live](http://magnt.co/qa/).
 
-Please refer to it to learn how to run this application.
+The server folder is purely for socket.io integration, and in order to use
+  npm install
+
+needs to be run on the root directory.
