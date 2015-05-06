@@ -1,0 +1,12 @@
+<header class="bar bar-nav">
+  <h1 class="title">Answer</h1>
+</header>
+<div class="content">
+  <div class="pad-it">
+    <form ng-controller="AnswerQuestion" action="#">
+        <input ng-model="answer.answerText" class="inline-field" type="text" placeholder="Your answer">
+        <button type="submit" ng-click="answer.submitAnswer()" class="btn btn-positive btn-block">Answer</button>
+        {{answerResult}}
+    </form>
+  </div>
+</div>

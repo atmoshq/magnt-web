@@ -1,0 +1,16 @@
+<header class="bar bar-nav">
+  <h1 class="title">ClassMagnet</h1>
+</header>
+<div class="content">
+  <div class="pad-it">
+    <img class="welcome-logo" src="//magnt.co/static/img/logo-black@300px.png"></img>
+    <h3 align="center">We believe classroom interaction doesn't have to suck.</h3>
+    <form ng-controller="WelcomeView">
+        <input type="email" ng-model="login.userEmail" name="email" placeholder="Email">
+        <input type="password" ng-model="login.userPassword" placeholder="Password">
+      <button ng-click="login.submitLogin()" class="btn btn-positive btn-block">Log in</button>
+      {{loginResult}}
+    </form>
+    <a ng-href="#/signup"><button class="btn btn-negative btn-block">Sign up</button></a>
+  </div>
+</div>

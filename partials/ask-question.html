@@ -1,0 +1,12 @@
+<header class="bar bar-nav">
+  <h1 class="title">Ask</h1>
+</header>
+<div class="content">
+  <div class="pad-it">
+    <form ng-controller="AskQuestion" action="#">
+        <input ng-model="questionAsk.questionText" class="inline-field" type="text" placeholder="Your Question">
+        <button type="submit" ng-click="questionAsk.submitQuestion()" class="btn btn-positive btn-block">Ask</button>
+        {{questionAskResult}}
+    </form>
+  </div>
+</div>

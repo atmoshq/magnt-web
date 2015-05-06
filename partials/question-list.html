@@ -1,0 +1,34 @@
+<div class="everything" ng-controller="QuestionListCtrl">
+<header class="bar bar-nav">
+  <a class="icon icon-left-nav pull-left" href="./#/magnets/"></a>
+  <h1 class="title">Questions</h1>
+  <a class="icon icon-compose pull-right"></a>
+</header>
+<div class="bar bar-footer">
+  <button class="btn btn-positive btn-block">
+    <span class="icon icon-plus"></span>
+  </button>
+</div>
+<a ng-href="#/magnets/qa/{{magnetId}}/ask/">
+  <div class="bar bar-footer footer-action">
+    <span class="icon icon-plus">Ask</span>
+  </div>
+<a>
+<div class="content pad-it">
+  <p ng-if="questionList.length === 0" class="notice-error">There doesn't seem to be anything here, you should post first!</p>
+  <ul class="table-view">
+    <li class="table-view-cell" ng-repeat="question in questionList">
+          {{question.question}}
+          <div class="action-bar">
+            <a ng-href="#/magnets/qa/{{question.magnetId}}/{{question.id}}/answer">
+              <button class="btn btn-positive">Answer</button>
+            </a>
+            <a ng-href="#/magnets/qa/{{question.magnetId}}/{{question.id}}/view">
+              <button class="btn btn-negative">View</button>
+            </a>
+          </div>
+    </li>
+  </ul>
+</div>
+</div>
+<!--- Modals -->

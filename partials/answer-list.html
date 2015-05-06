@@ -1,0 +1,23 @@
+<header class="bar bar-nav">
+  <a class="icon icon-left-nav pull-left" href="./#/magnets/"></a>
+  <h1 class="title">Answers</h1>
+  <a class="icon icon-compose pull-right"></a>
+</header>
+<div class="bar bar-footer">
+  <button class="btn btn-positive btn-block">
+    <span class="icon icon-plus"></span>
+  </button>
+</div>
+<a href="/qa/#/magnets/qa/ask/"><div class="bar bar-footer footer-action">
+    <span class="icon icon-plus">Ask</span>
+</div><a>
+<div class="content pad-it" ng-controller="ListAnswers">
+  <ul class="table-view">
+    <p ng-if="answersList.length === 0" class="notice-error">There doesn't seem to be anything here, you should post first!</p>
+    <li class="table-view-cell media" ng-repeat="answer in answersList">
+        <div class="media-body">
+        </div>
+    </li>
+  </ul>
+</div>
+<!--- Modals -->

@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Socket.IO chat</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      #messages { list-style-type: none; margin: 0; padding: 0; }
+      #messages li { padding: 5px 10px; }
+      #messages li:nth-child(odd) { background: #eee; }
+    </style>
+    <link rel="stylesheet" type="text/css" href="http://static.magnt.co/fonts/stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="http://static.magnt.co/css/topcoat-mobile-light.css">
+    <link rel="stylesheet" type="text/css" href="http://static.magnt.co/css/topcoat-main.css">
+    <link rel="stylesheet" type="text/css" href="http://static.magnt.co/css/brackets.css">
+    <link rel="stylesheet" type="text/css" href="http://static.magnt.co/css/magntwebcustom.css">
+    <!--[if lt IE 9] -->
+  </head>
+  <body class="light">
+    <div id="wrapper">
+      <div id="site">
+        <header id="main-header">
+          <div class="max-width">
+            <hgroup>
+              <h1><a href="http://topcoat.io">ClassMagnet</a></h1>
+              <p>CSS for clean and fast web apps</p>
+            </hgroup>
+            <nav>
+              <ul>
+                <li class="selected"><a href="http://topcoat.io/topcoat">Demo</a></li>
+                <li><a href="http://bench.topcoat.io/">Benchmarks</a></li>
+                <li><a href="http://topcoat.io/blog">Blog</a></li>
+                <li><a id="download-btn" href="https://github.com/topcoat/topcoat/archive/v0.8.0.zip" onclick="_gaq.push(['_trackEvent', 'download', 'click',,, false]);">Download</a></li>
+              </ul>
+            </nav><a id="slide-menu-button" class="topcoat-icon-button--large--quiet"><span class="topcoat-icon--large topcoat-icon--menu-stack"></span></a>
+          </div>
+        </header>
+        <div id="content" class="max-width">
+          <ul id="messages"></ul>
+          <form action="">
+            <input type="text" class="topcoat-text-input" value="" placeholder="text" id="m">
+            <button class="topcoat-button--cta" >Button</button>
+          </form>
+          <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+          <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+          <script>
+          function urlGetCool(sParam) {
+            var sPageURL = window.location.search.substring(1);
+            var sURLVariables = sPageURL.split('&');
+            for (var i = 0; i < sURLVariables.length; i++)
+            {
+                var sParameterName = sURLVariables[i].split('=');
+                if (sParameterName[0] == sParam)
+                {
+                    return sParameterName[1];
+                }
+            }
+          }
+          var magnet = urlGetCool('magnet');
+
+          console.log("Hi from " + magnet);
+            var socket = io();
+            $('form').submit(function(){
+              socket.emit('chat message', $('#m').val());
+              $('#m').val('');
+              return false;
+            });
+            socket.on('chat-in', function(myMagnetMsg){
+              if(myMagnetMsg.magnet == magnet ) {
+                $('#messages').append($('<li>').text(myMagnetMsg.message));
+              }
+            });
+          </script>
+        </div>
+    </div>
+    </div>
+  </body>
+</html>

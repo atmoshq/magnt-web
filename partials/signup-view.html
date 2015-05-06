@@ -1,0 +1,17 @@
+<header class="bar bar-nav">
+  <h1 class="title">Sign up</h1>
+</header>
+<div class="content">
+  <div class="pad-it">
+    <img class="welcome-logo" src="//magnt.co/static/img/logo-black@300px.png"></img>
+    <p>Hey we just need a little bit of information to get going. We don't share this with anybody.</p>
+    <form ng-controller="SignupView" action="#">
+        <input ng-model="signup.userFname" class="inline-field" type="text" placeholder="First name">
+        <input ng-model="signup.userLname" class="inline-field" type="text" placeholder="Last name">
+        <input ng-model="signup.userEmail" type="email" placeholder="Email">
+        <input ng-model="signup.userPassword" type="password" placeholder="Password">
+        <button type="submit" ng-click="signup.submitSignup()" class="btn btn-positive btn-block">Sign up</button>
+        {{signupResult}}
+    </form>
+  </div>
+</div>
