@@ -68,6 +68,7 @@ magntControllers.controller('MagnetListCtrl', ['$scope', '$http', '$location', '
     $http.get('http://api.magnt.co/api/magnets').
       success(function (data, status, headers, config){
         $scope.magnetList = data;
+        console.log(data);
       }).
       error(function (data, status, headers, config){
       });
