@@ -1,23 +1,13 @@
-<div class="everything" ng-controller="MagnetListCtrl">
-<header class="bar bar-nav">
-  <a class="icon icon-left-nav pull-left" href="./#/magnets/"></a>
-  <h1 class="title">Magnets</h1>
-  <a class="icon icon-compose pull-right"></a>
-</header>
-<div class="bar bar-footer">
-  <button class="btn btn-positive btn-block">
-    <span class="icon icon-plus"></span>
-  </button>
-</div>
-<div class="content pad-it">
-  <p ng-if="questionList.length === 0" class="notice-error">There doesn't seem to be anything here, you should post first!</p>
-  <ul class="table-view">
-    <li class="table-view-cell" ng-repeat="magnet in magnetList">
-          {{name.magnet}}
-          <div class="action-bar">
-          </div>
-    </li>
-  </ul>
-</div>
+<div class="container" ng-controller="MagnetListCtrl">
+  <div class="content">
+    <p ng-if="questionList.length === 0" class="notice-error">There doesn't seem to be anything here, you should post first!</p>
+    <ul class="table-view">
+      <li class="table-view-cell" ng-repeat="magnet in magnetList">
+            {{name.magnet}}
+            <div class="action-bar">
+            </div>
+      </li>
+    </ul>
+  </div>
 </div>
 <!--- Modals -->
