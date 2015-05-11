@@ -23,7 +23,9 @@ magntControllers.controller('SignupView', ['$scope', '$http', function($scope, $
         }
       }).
       error(function(data, status, headers, config){
-        $scope.signupResult = "Something went seriously wrong yo";
+        if(status === 422){
+          $scope.signupResult = "An account with that email already exists!"
+        }
       });
   }
 }]);

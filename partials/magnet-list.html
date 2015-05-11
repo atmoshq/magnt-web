@@ -34,9 +34,9 @@
 <div class="container" ng-controller="MagnetListCtrl">
     <p ng-if="questionList.length === 0" class="notice-error">There doesn't seem to be anything here, you should post first!</p>
     <ul class="list-group">
-      <li class="list-group-item" ng-repeat="magnet in magnetList">
+      <a href="" class="list-group-item" ng-repeat="magnet in magnetList">
             {{magnet.name}}
-      </li>
+      </a>
     </ul>
 </div>
 <!--- Modals -->
