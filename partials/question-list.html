@@ -18,7 +18,7 @@
   <p ng-if="questionList.length === 0" class="notice-error">There doesn't seem to be anything here, you should post first!</p>
   <ul class="table-view">
     <li class="table-view-cell" ng-repeat="question in questionList">
-          {{question.question}}
+          {{question.questionText}}
           <div class="action-bar">
             <a ng-href="#/magnets/qa/{{question.magnetId}}/{{question.id}}/answer">
               <button class="btn btn-positive">Answer</button>

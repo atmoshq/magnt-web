@@ -26,6 +26,7 @@ magntControllers.controller('SignupView', ['$scope', '$http', function($scope, $
         if(status === 422){
           $scope.signupResult = "An account with that email already exists!"
         }
+        $scope.signupResult = "Something went seriously wrong yo";
       });
   }
 }]);
@@ -85,10 +86,10 @@ magntControllers.controller('MagnetListCtrl', ['$scope', '$http', '$location', '
 
 magntControllers.controller('QuestionListCtrl', ['$scope', '$http', '$routeParams', 'userData', function($scope, $http, $routeParams, userData){
   $scope.magnetId = $routeParams.magnetId;
-  console.log(userData.getUserId());
-  $http.get('http://api.magnt.co/api/qas?filter[where][magnetId]=' + $routeParams.magnetId).
+  $http.get('http://api.magnt.co/api/magnets/' + $routeParams.magnetId + '/questions').
     success(function (data, status, headers, config){
       $scope.questionList = data;
+      console.log(data);
     }).
     error(function (data, status, headers, config){
     });
