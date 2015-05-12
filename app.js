@@ -1,5 +1,6 @@
 var magntWebApp = angular.module('magntWebApp', [
   'ngRoute',
+  'ngCookies',
   'magntControllers'
 ]);
 
@@ -53,20 +54,6 @@ magntWebApp.factory('userData', function() {
     }
   }
 });
-magntWebApp.factory('userResolver', ['$http', function($http) {
-  var returnData;
-  return {
-    getInfo: function(usrid) {
-      $http.get('http://api.magnt.co/api/people/' + usrid).
-      success(function (data, status, headers, config){
-          returnData = data;
-      }).error(function (data, status, headers, config){
-          returnData = data;
-      });
-      return returnData;
-    }
-  }
-}]);
 magntWebApp.factory('socket', function ($rootScope) {
   var socket = io.connect();
   return {

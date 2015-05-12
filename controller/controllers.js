@@ -66,7 +66,7 @@ magntControllers.controller('WelcomeView', ['$scope', '$http', '$location', 'use
 }]);
 
 // List Magnets
-magntControllers.controller('MagnetListCtrl', ['$scope', '$http', '$location', 'userData', 'userResolver', function($scope, $http ,$location, userData, userResolver){
+magntControllers.controller('MagnetListCtrl', ['$scope', '$http', '$location', 'userData', function($scope, $http ,$location, userData){
   if(userData.getToken()){
     $http.get('http://api.magnt.co/api/magnets').
       success(function (data, status, headers, config){
