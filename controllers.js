@@ -11,7 +11,6 @@ magntControllers.controller('SignupView', ['$scope', '$http', function($scope, $
       userEmail: $scope.signup.userEmail,
       userPass: $scope.signup.userPassword
     };
-    console.log(signupDetails);
     $http.post('http://api.magnt.co/api/people',
     {fname: signupDetails.userFname, lname: signupDetails.userLname, email: signupDetails.userEmail, password:signupDetails.userPass}).
       success(function(data, status, headers, config){
@@ -71,7 +70,6 @@ magntControllers.controller('MagnetListCtrl', ['$scope', '$http', '$location', '
       }).
       error(function (data, status, headers, config){
       });
-    console.log(userData.getUserId());
   }
   else {
     $location.path('/');
@@ -82,7 +80,6 @@ magntControllers.controller('MagnetListCtrl', ['$scope', '$http', '$location', '
 
 magntControllers.controller('QuestionListCtrl', ['$scope', '$http', '$routeParams', 'userData', function($scope, $http, $routeParams, userData){
   $scope.magnetId = $routeParams.magnetId;
-  console.log(userData.getUserId());
   $http.get('http://api.magnt.co/api/qas?filter[where][magnetId]=' + $routeParams.magnetId).
     success(function (data, status, headers, config){
       $scope.questionList = data;
@@ -95,11 +92,9 @@ magntControllers.controller('QuestionListCtrl', ['$scope', '$http', '$routeParam
 
 magntControllers.controller('ListAnswers', ['$scope', '$http', '$routeParams', 'userData', function($scope, $http, $routeParams, userData){
   $scope.questionId = $routeParams.questionId;
-  console.log(userData.getUserId());
   $http.get('http://api.magnt.co/api/qas/' + $routeParams.questionId).
     success(function (data, status, headers, config){
       $scope.answersList = data.answers;
-      console.log(data.answers);
     }).
     error(function (data, status, headers, config){
     });
@@ -114,8 +109,6 @@ magntControllers.controller('AskQuestion', ['$scope', '$http', '$routeParams', '
       whichMagnet: $routeParams.magnetId,
       userId: userData.getUserId()
     };
-    console.log(questionAskDetails);
-    console.log(userData.getUserId());
     $http.post('http://api.magnt.co/api/qas',
     {userId: userData.getUserId(), question: questionAskDetails.questionText, magnetId:questionAskDetails.whichMagnet, answers:[]}).
       success(function(data, status, headers, config){
