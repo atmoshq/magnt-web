@@ -85,7 +85,6 @@ magntControllers.controller('MagnetViewCtrl', ['$scope', '$http', '$location', '
   $http.get('http://api.magnt.co/api/magnets/' + $routeParams.magnetId + '?filter[include]=questions').
     success(function (data, status, headers, config){
       $scope.magnetInfo = data;
-      console.log(data);
     }).
     error(function (data, status, headers, config){
     });
@@ -98,7 +97,6 @@ magntControllers.controller('QuestionListCtrl', ['$scope', '$http', '$routeParam
   $http.get('http://api.magnt.co/api/magnets/' + $routeParams.magnetId + '/questions?filter[include]=people').
     success(function (data, status, headers, config){
       $scope.questionList = data;
-      console.log(data);
     }).
     error(function (data, status, headers, config){
     });
@@ -111,7 +109,6 @@ magntControllers.controller('ListAnswers', ['$scope', '$http', '$routeParams', '
   $http.get('http://api.magnt.co/api/qas/' + $routeParams.questionId).
     success(function (data, status, headers, config){
       $scope.answersList = data.answers;
-      console.log(data.answers);
     }).
     error(function (data, status, headers, config){
     });
@@ -121,26 +118,25 @@ magntControllers.controller('ListAnswers', ['$scope', '$http', '$routeParams', '
 magntControllers.controller('AskQuestion', ['$scope', '$http', '$routeParams', 'userData', function($scope, $http, $routeParams, userData){
   $scope.ask = {};
   $scope.ask.submitQuestion = function(item, event) {
-    var AskDetails = {
-      questionText: $scope.ask.questionText
+    var askDetails = {
+      questionText: $scope.ask.questionText,
+      magnetid: $routeParams.magnetId,
+      personid: userData.getUserId()
     };
-    console.log(AskDetails);
-    /*
-    $http.post('http://api.magnt.co/api/qas',
-    {personid: questionAskDetails.personid, question: questionAskDetails.questionText, magnetId:questionAskDetails.whichMagnet, answers:[]}).
+    console.log(askDetails);
+    $http.post('http://api.magnt.co/api/questions',
+    {questionText: askDetails.questionText, personid: askDetails.personid, magnetid: askDetails.magnetid, up:1}).
       success(function(data, status, headers, config){
         if(status == 200) {
-          $scope.questionAskResult = "Thanks for making an account!";
+          $scope.askResult = "Got your question.";
         }
         else {
-          $scope.questionAskResult = "Something went seriously wrong yo";
+          $scope.askResult = "There was an error submitting your question";
         }
       }).
       error(function(data, status, headers, config){
-        $scope.questionAskResult = "Something went seriously wrong yo";
+        $scope.askResult = "There was an error submitting your question";
       });
-      */
-  console.log($scope.ask.questionText);
   }
 }]);
 
