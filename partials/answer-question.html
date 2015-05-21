@@ -1,12 +1,39 @@
-<header class="bar bar-nav">
-  <h1 class="title">Answer</h1>
-</header>
-<div class="content">
-  <div class="pad-it">
-    <form ng-controller="AnswerQuestion" action="#">
-        <input ng-model="answer.answerText" class="inline-field" type="text" placeholder="Your answer">
-        <button type="submit" ng-click="answer.submitAnswer()" class="btn btn-positive btn-block">Answer</button>
-        {{answerResult}}
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"><img alt="ClassMagnet Logo" src="//magnt.co/static/img/logo-black@23px.png"></a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+  </div><!-- /.container-fluid -->
+</nav>
+<div class="container" ng-controller="ListAnswers">
+  <ol class="breadcrumb">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Magnets</a></li>
+    <li><a href="#">New Venture Creation</a></li>
+    <li><a href="#">Questions</a></li>
+    <li class="active">Answer</li>
+  </ol>
+  <a>
+    <p ng-if="answerList.length === 0" class="notice-error">There doesn't seem to be anything here, you should post first!</p>
+    <form class="form-inline" ng-controller="AnswerQuestion" action="#">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="input-group">
+            <input ng-model="answer.answerText" type="text" class="form-control" placeholder="The answer is 42">
+            <span class="input-group-btn">
+              <button ng-click="answer.submitAnswer()" type="submit" class="btn btn-default" type="button">Ask</button>
+            </span>
+            <p>{{answerResult}}</p>
+          </div><!-- /input-group -->
+        </div><!-- /.col-lg-6 -->
+      </div><!-- /.row -->
     </form>
-  </div>
+    <div class="list-group">
+      <a ng-href="#/magnets/{{magnet.id}}" class="list-group-item" ng-repeat="answer in answerList">
+        <h4 class="list-group-item-heading">{{answer.answertext}}</h4>
+      </a>
+    </div>
 </div>
+<!--- Modals -->

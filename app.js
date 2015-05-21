@@ -27,17 +27,13 @@ magntWebApp.config(['$routeProvider',
         templateUrl: 'partials/question-list.html',
         controller: 'QuestionListCtrl'
       }).
-      when('/magnets/qa/:magnetId/:questionId/view', {
-        templateUrl: 'partials/answer-list.html',
+      when('/magnets/:magnetId/qa/:questionId/answer', {
+        templateUrl: 'partials/answer-question.html',
         controller: 'ListAnswers'
       }).
       when('/magnets/:magnetId/qa/ask', {
         templateUrl: 'partials/ask-question.html',
         controller: 'AskQuestion'
-      }).
-      when('/magnets/:magnetId/qa/:questionId/answer', {
-        templateUrl: 'partials/answer-question.html',
-        controller: 'AnswerQuestion'
       });
 }]);
 magntWebApp.factory('userData', ['$cookieStore', function($cookieStore) {
