@@ -81,10 +81,21 @@ magntControllers.controller('MagnetListCtrl', ['$scope', '$http', '$location', '
 // Magnet View
 magntControllers.controller('MagnetViewCtrl', ['$scope', '$http', '$location', '$routeParams', function($scope, $http ,$location, $routeParams){
   $scope.magnetId = $routeParams.magnetId;
-  $http.get('http://api.magnt.co/api/magnets/' + $routeParams.magnetId + '?filter[include]=questions').
+  $http.get('http://api.magnt.co/api/magnets/' + $routeParams.magnetId).
     success(function (data, status, headers, config){
       $scope.magnetInfo = data;
       $scope.questionList = data.questions;
+    }).
+    error(function (data, status, headers, config){
+    });
+}]);
+
+// List questions
+magntControllers.controller('QuestionListCtrl', ['$scope', '$http', '$location', '$routeParams', function($scope, $http ,$location, $routeParams){
+  $scope.magnetId = $routeParams.magnetId;
+  $http.get('http://api.magnt.co/api/magnets/' + $routeParams.magnetId + '/questions?filter[include]=people').
+    success(function (data, status, headers, config){
+      $scope.questionList = data;
     }).
     error(function (data, status, headers, config){
     });
