@@ -21,22 +21,23 @@
   <div class="row">
     <div class="col-sm-6 col-md-4">
       <div class="thumbnail center-block">
-        <img src="..." alt="...">
+        <img src="//magnt.co/static/img/i-econ.png" alt="Business category image">
         <div class="caption">
           <h3>{{magnetInfo.name}}</h3>
-          <p>...</p>
           <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
         </div>
       </div>
     </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h3 class="panel-title">Recent questions</h3>
-    </div>
-    <div class="panel-body" ng-repeat="question in magnetInfo.questions">
-      {{question.questionText}}
-      <p>{{question.people.fname}}</p>
+    <div class="col-sm-6 col-md-8">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Recent questions</h3>
+        </div>
+        <div class="panel-body" ng-repeat="question in magnetInfo.questions">
+          {{question.questionText}}
+          <p>{{question.people.fname}}</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
