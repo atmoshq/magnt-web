@@ -17,8 +17,6 @@
   <a>
     <p ng-if="questionList.length === 0" class="notice-error">There doesn't seem to be anything here, you should post first!</p>
     <form class="form-inline" ng-controller="AskQuestion" action="#">
-      <div class="row">
-        <div class="col-lg-12">
           <div class="input-group">
             <input ng-model="ask.questionText" type="text" class="form-control" placeholder="What is the meaning of life?">
             <span class="input-group-btn">
@@ -26,8 +24,6 @@
             </span>
           </div><!-- /input-group -->
           <p>{{askResult}}</p>
-        </div><!-- /.col-lg-6 -->
-      </div><!-- /.row -->
     </form>
     <div class="list-group">
       <a ng-href="#/magnets/{{magnetId}}/qa/{{question.id}}/answer" class="list-group-item" ng-repeat="question in questionList | orderBy:'-up'">
