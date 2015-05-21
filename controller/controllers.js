@@ -95,9 +95,10 @@ magntControllers.controller('MagnetViewCtrl', ['$scope', '$http', '$location', '
 
 magntControllers.controller('QuestionListCtrl', ['$scope', '$http', '$routeParams', 'userData', function($scope, $http, $routeParams, userData){
   $scope.magnetId = $routeParams.magnetId;
-  $http.get('http://api.magnt.co/api/magnets/' + $routeParams.magnetId + '/questions').
+  $http.get('http://api.magnt.co/api/magnets/' + $routeParams.magnetId + '/questions?filter[include]=people').
     success(function (data, status, headers, config){
       $scope.questionList = data;
+      console.log(data);
     }).
     error(function (data, status, headers, config){
     });
@@ -118,15 +119,15 @@ magntControllers.controller('ListAnswers', ['$scope', '$http', '$routeParams', '
 
 // Post question
 magntControllers.controller('AskQuestion', ['$scope', '$http', '$routeParams', 'userData', function($scope, $http, $routeParams, userData){
-  $scope.questionAsk = {};
-  $scope.questionAsk.submitQuestion = function(item, event) {
-    var questionAskDetails = {
-      questionText: $scope.questionAsk.questionText,
-      whichMagnet: $routeParams.magnetId,
-      userId: userData.getUserId()
+  $scope.ask = {};
+  $scope.ask.submitQuestion = function(item, event) {
+    var AskDetails = {
+      questionText: $scope.ask.questionText
     };
+    console.log(AskDetails);
+    /*
     $http.post('http://api.magnt.co/api/qas',
-    {userId: userData.getUserId(), question: questionAskDetails.questionText, magnetId:questionAskDetails.whichMagnet, answers:[]}).
+    {personid: questionAskDetails.personid, question: questionAskDetails.questionText, magnetId:questionAskDetails.whichMagnet, answers:[]}).
       success(function(data, status, headers, config){
         if(status == 200) {
           $scope.questionAskResult = "Thanks for making an account!";
@@ -138,6 +139,8 @@ magntControllers.controller('AskQuestion', ['$scope', '$http', '$routeParams', '
       error(function(data, status, headers, config){
         $scope.questionAskResult = "Something went seriously wrong yo";
       });
+      */
+  console.log($scope.ask.questionText);
   }
 }]);
 

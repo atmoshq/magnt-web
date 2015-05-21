@@ -31,11 +31,11 @@ magntWebApp.config(['$routeProvider',
         templateUrl: 'partials/answer-list.html',
         controller: 'ListAnswers'
       }).
-      when('/magnets/qa/:magnetId/ask', {
+      when('/magnets/:magnetId/qa/ask', {
         templateUrl: 'partials/ask-question.html',
         controller: 'AskQuestion'
       }).
-      when('/magnets/qa/:magnetId/:questionId/answer', {
+      when('/magnets/:magnetId/qa/:questionId/answer', {
         templateUrl: 'partials/answer-question.html',
         controller: 'AnswerQuestion'
       });

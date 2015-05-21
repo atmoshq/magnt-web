@@ -1,12 +1,27 @@
-<header class="bar bar-nav">
-  <h1 class="title">Ask</h1>
-</header>
-<div class="content">
-  <div class="pad-it">
-    <form ng-controller="AskQuestion" action="#">
-        <input ng-model="questionAsk.questionText" class="inline-field" type="text" placeholder="Your Question">
-        <button type="submit" ng-click="questionAsk.submitQuestion()" class="btn btn-positive btn-block">Ask</button>
-        {{questionAskResult}}
-    </form>
-  </div>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"><img alt="ClassMagnet Logo" src="//magnt.co/static/img/logo-black@23px.png"></a>
+      <button type="button" class="btn btn-default navbar-btn">Ask</button>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+  </div><!-- /.container-fluid -->
+</nav>
+<div class="container">
+  <p>Ask away</p>
+  <form class="form-horizontal" ng-controller="AskQuestion" action="#">
+    <div class="form-group">
+      <label for="inputFname" class="col-sm-2 control-label">First Name</label>
+      <div class="col-sm-10">
+        <input ng-model="ask.questionText" type="text-area" class="form-control" id="inputquestionText" placeholder="What is the meaning of life?">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-6">
+        <button ng-click="ask.submitQuestion()" type="submit" class="btn btn-default">Sign in</button>
+      </div>
+    </div>
+    {{signupResult}}
+  </form>
 </div>
