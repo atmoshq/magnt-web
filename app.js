@@ -20,12 +20,8 @@ magntWebApp.config(['$routeProvider',
         controller: 'MagnetListCtrl'
       }).
       when('/magnets/:magnetId', {
-        templateUrl: 'partials/magnet-view.html',
-        controller: 'MagnetViewCtrl'
-      }).
-      when('/magnets/:magnetId/qa', {
         templateUrl: 'partials/question-list.html',
-        controller: 'QuestionListCtrl'
+        controller: 'MagnetViewCtrl'
       }).
       when('/magnets/:magnetId/qa/:questionId/answer', {
         templateUrl: 'partials/answer-question.html',

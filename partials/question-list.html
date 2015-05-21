@@ -7,13 +7,27 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
   </div><!-- /.container-fluid -->
 </nav>
-<div class="container" ng-controller="QuestionListCtrl">
+<div class="container" ng-controller="MagnetViewCtrl">
   <ol class="breadcrumb">
     <li><a href="#">Home</a></li>
     <li><a ng-href="#/magnets">Magnets</a></li>
-    <li><a href="#">{{magnetInfo.name}}</a></li>
-    <li class="active">Questions</li>
+    <li class="active">{{magnetInfo.name}}</li>
   </ol>
+  <div class="row">
+  <div class="col-md-4">
+    <div class="media">
+      <div class="media-left">
+        <a href="#">
+          <img class="media-object" ng-src="//magnt.co/static/img/{{magnetInfo.icon}}@60px.png" alt="Category icon">
+        </a>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading">{{magnetInfo.name}}</h4>
+        <p>{{magnetInfo.code}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-8">
   <a>
     <p ng-if="questionList.length === 0" class="notice-error">There doesn't seem to be anything here, you should post first!</p>
     <form class="form-inline" ng-controller="AskQuestion" action="#">
@@ -32,5 +46,7 @@
         <p class="text-left">Posted by {{question.people.fname}} {{question.people.lname}}</p>
       </a>
     </div>
+  </div>
+  </div>
 </div>
 <!--- Modals -->

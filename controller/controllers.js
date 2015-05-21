@@ -84,18 +84,7 @@ magntControllers.controller('MagnetViewCtrl', ['$scope', '$http', '$location', '
   $http.get('http://api.magnt.co/api/magnets/' + $routeParams.magnetId + '?filter[include]=questions').
     success(function (data, status, headers, config){
       $scope.magnetInfo = data;
-    }).
-    error(function (data, status, headers, config){
-    });
-}]);
-
-// List questions
-
-magntControllers.controller('QuestionListCtrl', ['$scope', '$http', '$routeParams', 'userData', function($scope, $http, $routeParams, userData){
-  $scope.magnetId = $routeParams.magnetId;
-  $http.get('http://api.magnt.co/api/magnets/' + $routeParams.magnetId + '/questions?filter[include]=people').
-    success(function (data, status, headers, config){
-      $scope.questionList = data;
+      $scope.questionList = data.questions;
     }).
     error(function (data, status, headers, config){
     });
@@ -124,10 +113,7 @@ magntControllers.controller('AskQuestion', ['$scope', '$http', '$routeParams', '
       magnetid: $routeParams.magnetId,
       personid: userData.getUserId()
     };
-    console.log(askDetails);
-    console.log($scope.questionList);
     $scope.questionList.push(askDetails);
-    console.log($scope.questionList);
     $http.post('http://api.magnt.co/api/questions',
     {questionText: askDetails.questionText, personid: askDetails.personid, magnetid: askDetails.magnetid, up:1, down:0}).
       success(function(data, status, headers, config){
