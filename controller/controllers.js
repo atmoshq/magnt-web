@@ -18,14 +18,13 @@ magntControllers.controller('SignupView', ['$scope', '$http', function($scope, $
           $scope.signupResult = "Thanks for making an account!";
         }
         else {
-          $scope.signupResult = "Something went seriously wrong yo";
+          $scope.signupResult = "That account already exists. Are you sure you aren't trying to sign in? ";
         }
       }).
       error(function(data, status, headers, config){
         if(status === 422){
           $scope.signupResult = "An account with that email already exists!"
         }
-        $scope.signupResult = "Something went seriously wrong yo";
       });
   }
 }]);
