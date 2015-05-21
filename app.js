@@ -40,7 +40,7 @@ magntWebApp.config(['$routeProvider',
         controller: 'AnswerQuestion'
       });
 }]);
-magntWebApp.factory('userData', ['$cookies', function($cookies) {
+magntWebApp.factory('userData', ['$cookieStore', function($cookieStore) {
   var token = '';
   var userId = '';
   return {
@@ -49,12 +49,18 @@ magntWebApp.factory('userData', ['$cookies', function($cookies) {
     },
     setToken: function(tokenId) {
       token = tokenId;
+      $cookieStore.put("userToken", tokenId);
     },
     setUserId: function(userIDin) {
       userId = userIDin;
+      $cookieStore.put("userId", userId);
     },
     getUserId: function() {
+      if(!userId){
+        userId = $cookieStore.get(userId);
+      }
       return userId;
     }
   }
+
 }]);
