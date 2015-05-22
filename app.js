@@ -4,8 +4,8 @@ var magntWebApp = angular.module('magntWebApp', [
   'magntControllers'
 ]);
 
-magntWebApp.config(['$routeProvider',
-  function($routeProvider) {
+magntWebApp.config(['$routeProvider','$locationProvider',
+  function($routeProvider, $locationProvider) {
     $routeProvider.
       when('/signup', {
         templateUrl: 'partials/signup-view.html',
@@ -31,6 +31,7 @@ magntWebApp.config(['$routeProvider',
         templateUrl: 'partials/ask-question.html',
         controller: 'AskQuestion'
       });
+      $locationProvider.html5Mode(true);
 }]);
 magntWebApp.factory('userData', ['$cookieStore', function($cookieStore) {
   var token = '';

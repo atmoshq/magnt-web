@@ -13,11 +13,12 @@
 </div><a>
 <div class="content pad-it" ng-controller="ListAnswers">
   <ul class="table-view">
-    <p ng-if="answersList.length === 0" class="notice-error">There doesn't seem to be anything here, you should post first!</p>
-    <li class="table-view-cell media" ng-repeat="answer in answersList">
+    <p ng-if="answer.length === 0" class="notice-error">There doesn't seem to be anything here, you should post first!</p>
+    <li class="table-view-cell media" ng-repeat="answer in answerList">
         <div class="media-body">
         </div>
     </li>
+    <div ng-if="answerResult" class="alert alert-success" role="alert">{{answerResult}}</div>
   </ul>
 </div>
 <!--- Modals -->

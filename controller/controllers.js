@@ -79,7 +79,7 @@ magntControllers.controller('MagnetListCtrl', ['$scope', '$http', '$location', '
 }]);
 
 // Magnet View
-magntControllers.controller('MagnetViewCtrl', ['$scope', '$http', '$location', '$routeParams', function($scope, $http ,$location, $routeParams){
+magntControllers.controller('MagnetViewCtrl', ['$scope', '$http', '$location', '$routeParams', '$anchorScroll', function($scope, $http ,$location, $routeParams, $anchorScroll){
   $scope.magnetId = $routeParams.magnetId;
   $http.get('http://api.magnt.co/api/magnets/' + $routeParams.magnetId).
     success(function (data, status, headers, config){
@@ -93,7 +93,7 @@ magntControllers.controller('MagnetViewCtrl', ['$scope', '$http', '$location', '
 // List questions
 magntControllers.controller('QuestionListCtrl', ['$scope', '$http', '$location', '$routeParams', function($scope, $http ,$location, $routeParams){
   $scope.magnetId = $routeParams.magnetId;
-  $http.get('http://api.magnt.co/api/magnets/' + $routeParams.magnetId + '/questions?filter[include]=people').
+  $http.get('http://api.magnt.co/api/magnets/' + $routeParams.magnetId + '/questions?filter[include]=people&filter[include]=answers').
     success(function (data, status, headers, config){
       $scope.questionList = data;
     }).
@@ -105,10 +105,10 @@ magntControllers.controller('QuestionListCtrl', ['$scope', '$http', '$location',
 
 magntControllers.controller('ListAnswers', ['$scope', '$http', '$routeParams', 'userData', function($scope, $http, $routeParams, userData){
   $scope.questionId = $routeParams.questionId;
-  $http.get('http://api.magnt.co/api/questions/' + $routeParams.questionId + '?filter[include]=answers').
+  $http.get('http://api.magnt.co/api/answers/?filter[where][questionid]=' + $routeParams.questionId + '&filter[include]=person').
     success(function (data, status, headers, config){
-      $scope.answerList = data.answers;
-      console.log(data.answers);
+      $scope.answerList = data;
+      console.log(data);
     }).
     error(function (data, status, headers, config){
       console.log("problem");
@@ -153,19 +153,19 @@ magntControllers.controller('AnswerQuestion', ['$scope', '$http', '$location', '
       questionid: $scope.questionId,
       personid: userData.getUserId()
     };
-    console.log(answerDetails);
+    $scope.answerList.push(answerDetails);
     $http.post('http://api.magnt.co/api/answers',
     {answertext: answerDetails.answerText, personid: answerDetails.personid, questionid: answerDetails.questionid}).
       success(function(data, status, headers, config){
         if(status == 200) {
-          $scope.askResult = "Got your answer!";
+          $scope.answerResult = "Got your answer!";
         }
         else {
-          $scope.askResult = "There was an error submitting your question";
+          $scope.answerResult = "There was an error submitting your answer";
         }
       }).
       error(function(data, status, headers, config){
-        $scope.askResult = "There was an error submitting your question";
+        $scope.answerResult = "There was an error submitting your answer";
       });
   }
 }]);
