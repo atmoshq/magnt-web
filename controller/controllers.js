@@ -148,14 +148,16 @@ magntControllers.controller('AnswerQuestion', ['$scope', '$http', '$location', '
   $scope.answer = {};
   $scope.answer.submitAnswer = function(item, event) {
     var answerDetails = {
-      answerText: $scope.answer.answerText,
+      answertext: $scope.answer.answerText,
       magnetid: $routeParams.magnetId,
       questionid: $scope.questionId,
       personid: userData.getUserId()
     };
+    console.log(answerDetails);
     $scope.answerList.push(answerDetails);
+    console.log(answerDetails);
     $http.post('http://api.magnt.co/api/answers',
-    {answertext: answerDetails.answerText, personid: answerDetails.personid, questionid: answerDetails.questionid}).
+    {answertext: answerDetails.answertext, personid: answerDetails.personid, questionid: answerDetails.questionid}).
       success(function(data, status, headers, config){
         if(status == 200) {
           $scope.answerResult = "Got your answer!";

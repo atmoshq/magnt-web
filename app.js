@@ -31,7 +31,6 @@ magntWebApp.config(['$routeProvider','$locationProvider',
         templateUrl: 'partials/ask-question.html',
         controller: 'AskQuestion'
       });
-      $locationProvider.html5Mode(true);
 }]);
 magntWebApp.factory('userData', ['$cookieStore', function($cookieStore) {
   var token = '';

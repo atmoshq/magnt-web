@@ -46,7 +46,7 @@
   </div>
   <p ng-if="questionList.length === 0" class="notice-error">There doesn't seem to be anything here, you should post first!</p>
   <div class="list-group">
-    <a ng-href="magnets/{{magnet.id}}" class="list-group-item" ng-repeat="magnet in magnetList">
+    <a ng-href="#/magnets/{{magnet.id}}" class="list-group-item" ng-repeat="magnet in magnetList">
       <h4 class="list-group-item-heading">{{magnet.name}}</h4>
     </a>
   </div>

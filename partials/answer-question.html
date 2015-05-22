@@ -10,9 +10,9 @@
 <div class="container" ng-controller="ListAnswers">
   <ol class="breadcrumb">
     <li><a href="#">Home</a></li>
-    <li><a href="#">Magnets</a></li>
-    <li><a href="#">New Venture Creation</a></li>
-    <li><a href="#">Questions</a></li>
+    <li><a href="#/magnets">Magnets</a></li>
+    <li><a href="#/magnets/1">New Venture Creation</a></li>
+    <li><a ng-href="#/magnets/1/qa/">Questions</a></li>
     <li class="active">Answer</li>
   </ol>
   <a>
@@ -31,7 +31,7 @@
       </div><!-- /.row -->
     </form>
     <div class="list-group">
-      <a ng-href="#/magnets/{{magnet.id}}" class="list-group-item" ng-repeat="answer in answerList">
+      <a class="list-group-item" ng-repeat="answer in answerList">
         <h4 class="list-group-item-heading">{{answer.answertext}}</h4>
       </a>
     </div>
