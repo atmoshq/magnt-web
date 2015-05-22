@@ -1,3 +1,8 @@
 body {
   padding-top:70px;
 }
+.magnet-pic {
+  width:200px;
+  margin: 0 auto
+  padding-bottom:10px;
+}
