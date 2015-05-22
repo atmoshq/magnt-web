@@ -17,9 +17,7 @@
   </ol>
   <a>
     <p ng-if="answerList.length === 0" class="notice-error">There doesn't seem to be anything here, you should post first!</p>
-    <form class="form-inline" ng-controller="AnswerQuestion" action="#">
-      <div class="row">
-        <div class="col-lg-12">
+    <form ng-controller="AnswerQuestion" action="#">
           <div class="input-group">
             <input ng-model="answer.answerText" type="text" class="form-control" placeholder="The answer is 42">
             <span class="input-group-btn">
@@ -27,8 +25,6 @@
             </span>
             <p>{{answerResult}}</p>
           </div><!-- /input-group -->
-        </div><!-- /.col-lg-6 -->
-      </div><!-- /.row -->
     </form>
     <div class="list-group">
       <a class="list-group-item" ng-repeat="answer in answerList">
