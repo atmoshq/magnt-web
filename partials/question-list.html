@@ -14,21 +14,15 @@
     <li class="active">{{magnetInfo.name}}</li>
   </ol>
   <div class="row">
-  <div class="col-md-4">
-    <div class="media">
-      <div class="media-left">
+  <div class="col-md-3">
         <a href="#">
-          <img class="media-object" ng-src="//magnt.co/static/img/{{magnetInfo.icon}}@60px.png" alt="Category icon">
+          <img ng-src="//magnt.co/static/img/{{magnetInfo.icon}}@60px.png" alt="Category icon">
         </a>
-      </div>
-      <div class="media-body">
-        <h4 class="media-heading">{{magnetInfo.name}}</h4>
+        <h4>{{magnetInfo.name}}</h4>
         <p>{{magnetInfo.code}}</p>
         <img class="magnet-pic" src="http://economicdevelopment.org/wp-content/uploads/2012/09/daze-stephen.jpg"/>
-      </div>
     </div>
-  </div>
-  <div class="col-md-8">
+  <div class="col-md-9">
   <a>
     <p ng-if="questionList.length === 0" class="notice-error">There doesn't seem to be anything here, you should post first!</p>
     <form ng-controller="AskQuestion" action="#">
