@@ -1,0 +1,47 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#/magnets"><img alt="ClassMagnet Logo" src="//magnt.co/static/img/logo-black@23px.png"></a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+  </div><!-- /.container-fluid -->
+</nav>
+<div class="container" ng-controller="MagnetViewCtrl">
+  <ol class="breadcrumb">
+    <li><a href="#">Home</a></li>
+    <li><a ng-href="#/magnets">Magnets</a></li>
+    <li class="active">{{magnetInfo.name}}</li>
+  </ol>
+  <div class="row">
+  <div class="col-md-3">
+        <a href="#">
+          <img ng-src="//magnt.co/static/img/{{magnetInfo.icon}}@60px.png" alt="Category icon">
+        </a>
+        <h4>{{magnetInfo.name}}</h4>
+        <p>{{magnetInfo.code}}</p>
+        <img class="magnet-pic" src="http://economicdevelopment.org/wp-content/uploads/2012/09/daze-stephen.jpg"/>
+    </div>
+  <div class="col-md-9">
+  <a>
+    <p ng-if="questionList.length === 0" class="notice-error">There doesn't seem to be anything here, you should post first!</p>
+    <form ng-controller="AskQuestion" action="#">
+          <div class="input-group">
+            <input ng-model="ask.questionText" type="text" class="form-control" placeholder="What is the meaning of life?">
+            <span class="input-group-btn">
+              <button ng-click="ask.submitQuestion()" type="submit" class="btn btn-default" type="button">Ask</button>
+            </span>
+          </div><!-- /input-group -->
+          <p>{{askResult}}</p>
+    </form>
+    <div class="list-group" ng-controller="QuestionListCtrl">
+      <a ng-href="#/magnets/{{magnetInfo.id}}/qa/{{question.id}}/answer" class="list-group-item" ng-repeat="question in questionList | orderBy:'-up'">
+        <h4 class="list-group-item-heading">{{question.questionText}}</h4>
+        <span class="badge">{{question.up - question.down}}</span>
+        <p class="text-left">Posted by {{question.people.fname}} {{question.people.lname}}</p>
+      </a>
+    </div>
+  </div>
+  </div>
+</div>
+<!--- Modals -->
