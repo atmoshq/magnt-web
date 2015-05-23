@@ -20,16 +20,12 @@ magntWebApp.config(['$routeProvider','$locationProvider',
         controller: 'MagnetListCtrl'
       }).
       when('/magnets/:magnetId', {
-        templateUrl: 'partials/question-list.html',
+        templateUrl: 'partials/magnet-view.html',
         controller: 'MagnetViewCtrl'
       }).
       when('/magnets/:magnetId/qa/:questionId/answer', {
         templateUrl: 'partials/answer-question.html',
         controller: 'ListAnswers'
-      }).
-      when('/magnets/:magnetId/qa/ask', {
-        templateUrl: 'partials/ask-question.html',
-        controller: 'AskQuestion'
       });
 }]);
 magntWebApp.factory('userData', ['$cookieStore', function($cookieStore) {

@@ -101,20 +101,6 @@ magntControllers.controller('QuestionListCtrl', ['$scope', '$http', '$location',
     });
 }]);
 
-// List Answers
-
-magntControllers.controller('ListAnswers', ['$scope', '$http', '$routeParams', 'userData', function($scope, $http, $routeParams, userData){
-  $scope.questionId = $routeParams.questionId;
-  $http.get('http://api.magnt.co/api/answers/?filter[where][questionid]=' + $routeParams.questionId + '&filter[include]=person').
-    success(function (data, status, headers, config){
-      $scope.answerList = data;
-      console.log(data);
-    }).
-    error(function (data, status, headers, config){
-      console.log("problem");
-    });
-}]);
-
 // Post question
 magntControllers.controller('AskQuestion', ['$scope', '$http', '$routeParams', 'userData', function($scope, $http, $routeParams, userData){
   $scope.ask = {};
@@ -141,6 +127,21 @@ magntControllers.controller('AskQuestion', ['$scope', '$http', '$routeParams', '
   }
 }]);
 
+// List Answers
+
+magntControllers.controller('ListAnswers', ['$scope', '$http', '$routeParams', 'userData', function($scope, $http, $routeParams, userData){
+  $scope.questionId = $routeParams.questionId;
+  $http.get('http://api.magnt.co/api/answers/?filter[where][questionid]=' + $routeParams.questionId + '&filter[include]=person').
+    success(function (data, status, headers, config){
+      $scope.answerList = data;
+      console.log(data);
+    }).
+    error(function (data, status, headers, config){
+      console.log("problem");
+    });
+}]);
+
+
 // Post answer
 
 magntControllers.controller('AnswerQuestion', ['$scope', '$http', '$location', '$routeParams', 'userData', function($scope, $http , $location, $routeParams, userData){
@@ -153,9 +154,7 @@ magntControllers.controller('AnswerQuestion', ['$scope', '$http', '$location', '
       questionid: $scope.questionId,
       personid: userData.getUserId()
     };
-    console.log(answerDetails);
     $scope.answerList.push(answerDetails);
-    console.log(answerDetails);
     $http.post('http://api.magnt.co/api/answers',
     {answertext: answerDetails.answertext, personid: answerDetails.personid, questionid: answerDetails.questionid}).
       success(function(data, status, headers, config){
