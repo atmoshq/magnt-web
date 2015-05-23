@@ -110,7 +110,6 @@ magntControllers.controller('AskQuestion', ['$scope', '$http', '$routeParams', '
       magnetid: $routeParams.magnetId,
       personid: userData.getUserId()
     };
-    $scope.questionList.push(askDetails);
     $http.post('http://api.magnt.co/api/questions',
     {questionText: askDetails.questionText, personid: askDetails.personid, magnetid: askDetails.magnetid, up:1, down:0}).
       success(function(data, status, headers, config){
@@ -134,10 +133,8 @@ magntControllers.controller('ListAnswers', ['$scope', '$http', '$routeParams', '
   $http.get('http://api.magnt.co/api/answers/?filter[where][questionid]=' + $routeParams.questionId + '&filter[include]=person').
     success(function (data, status, headers, config){
       $scope.answerList = data;
-      console.log(data);
     }).
     error(function (data, status, headers, config){
-      console.log("problem");
     });
 }]);
 

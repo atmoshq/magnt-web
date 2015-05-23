@@ -22,7 +22,7 @@
         <p>{{magnetInfo.code}}</p>
         <img class="magnet-pic" src="http://economicdevelopment.org/wp-content/uploads/2012/09/daze-stephen.jpg"/>
     </div>
-  <div class="col-md-9">
+  <div class="col-md-9" ng-controller="QuestionListCtrl">
   <a>
     <p ng-if="questionList.length === 0" class="notice-error">There doesn't seem to be anything here, you should post first!</p>
     <form ng-controller="AskQuestion" action="#">
@@ -34,7 +34,7 @@
           </div><!-- /input-group -->
           <p>{{askResult}}</p>
     </form>
-    <div class="list-group" ng-controller="QuestionListCtrl">
+    <div class="list-group">
       <a ng-href="#/magnets/{{magnetInfo.id}}/qa/{{question.id}}/answer" class="list-group-item" ng-repeat="question in questionList | orderBy:'-up'">
         <h4 class="list-group-item-heading">{{question.questionText}}</h4>
         <span class="badge">{{question.up - question.down}}</span>

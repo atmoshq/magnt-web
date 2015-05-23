@@ -52,3 +52,18 @@ magntWebApp.factory('userData', ['$cookieStore', function($cookieStore) {
   }
 
 }]);
+magntWebApp.factory('apiQuestions', ['$cookieStore', function($cookieStore) {
+  var questionlist = [];
+  return {
+    getQuestions: function(magnetid) {
+      $http.get('http://api.magnt.co/api/magnets/' + $routeParams.magnetId + '/questions?filter[include]=people&filter[include]=answers').
+        success(function (data, status, headers, config){
+          questionlist = data;
+          return questionlist;
+        }).
+        error(function (data, status, headers, config){
+          return 0;
+        });
+    }
+  }
+}]);
