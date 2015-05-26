@@ -127,14 +127,12 @@ magntControllers.controller('AskQuestion', ['$scope', '$http', '$routeParams', '
 
 // List Answers
 
-magntControllers.controller('ListAnswers', ['$scope', '$http', '$routeParams', 'userData', function($scope, $http, $routeParams, userData){
+magntControllers.controller('ListAnswers', ['$scope', '$http', '$routeParams', 'userData', 'apiAnswers', function($scope, $http, $routeParams, userData, apiAnswers){
   $scope.questionId = $routeParams.questionId;
-  $http.get('http://api.magnt.co/api/answers/?filter[where][questionid]=' + $routeParams.questionId + '&filter[include]=person').
-    success(function (data, status, headers, config){
-      $scope.answerList = data;
-    }).
-    error(function (data, status, headers, config){
-    });
+  apiAnswers.getAnswers($scope.questionId).then(function(d) {
+    $scope.answerList = d.data;
+    console.log($scope.answerList)
+  });
 }]);
 
 

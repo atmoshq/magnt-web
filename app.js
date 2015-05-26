@@ -60,3 +60,11 @@ magntWebApp.factory('apiQuestions', ['$http', function($http) {
     }
   }
 }]);
+magntWebApp.factory('apiAnswers', ['$http', function($http) {
+  var answerlist = [];
+  return {
+    getAnswers: function(questionid) {
+      return $http.get('http://api.magnt.co/api/answers/?filter[where][questionid]=' + questionid + '&filter[include]=person');
+    }
+  }
+}]);
