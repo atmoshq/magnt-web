@@ -92,7 +92,7 @@ magntControllers.controller('MagnetViewCtrl', ['$scope', '$http', '$location', '
 // List questions
 magntControllers.controller('QuestionListCtrl', ['$scope', '$http', '$location', '$routeParams', 'apiQuestions', function($scope, $http ,$location, $routeParams, apiQuestions){
   $scope.magnetId = $routeParams.magnetId;
-  apiQuestions.getQuestions(1).then(function(d) {
+  apiQuestions.getQuestions($scope.magnetId).then(function(d) {
     $scope.questionList = d.data;
   });
 }]);
@@ -122,16 +122,22 @@ magntControllers.controller('AskQuestion', ['$scope', '$http', '$routeParams', '
       error(function(data, status, headers, config){
         $scope.askResult = "There was an error submitting your question";
       });
+      apiQuestions.getQuestions($scope.magnetId).then(function(d) {
+        $scope.questionList = d.data;
+      });
   }
 }]);
 
 // List Answers
 
-magntControllers.controller('ListAnswers', ['$scope', '$http', '$routeParams', 'userData', 'apiAnswers', function($scope, $http, $routeParams, userData, apiAnswers){
+magntControllers.controller('ListAnswers', ['$scope', '$http', '$routeParams', 'userData', 'apiAnswers', 'apiQuestions', function($scope, $http, $routeParams, userData, apiAnswers, apiQuestions){
   $scope.questionId = $routeParams.questionId;
   apiAnswers.getAnswers($scope.questionId).then(function(d) {
     $scope.answerList = d.data;
-    console.log($scope.answerList)
+  });
+  apiQuestions.singleQuestion($scope.questionId).then(function(d) {
+    $scope.currentQuestion = d.data;
+    console.log(d.data);
   });
 }]);
 
@@ -163,7 +169,6 @@ magntControllers.controller('AnswerQuestion', ['$scope', '$http', '$location', '
       });
       apiAnswers.getAnswers($scope.questionId).then(function(d) {
         $scope.answerList = d.data;
-        console.log($scope.answerList)
       })
   }
 }]);
