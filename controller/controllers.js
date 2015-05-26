@@ -137,7 +137,6 @@ magntControllers.controller('ListAnswers', ['$scope', '$http', '$routeParams', '
   });
   apiQuestions.singleQuestion($scope.questionId).then(function(d) {
     $scope.currentQuestion = d.data;
-    console.log(d.data);
   });
 }]);
 
