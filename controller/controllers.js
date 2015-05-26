@@ -148,7 +148,6 @@ magntControllers.controller('AnswerQuestion', ['$scope', '$http', '$location', '
       questionid: $scope.questionId,
       personid: userData.getUserId()
     };
-    $scope.answerList.push(answerDetails);
     $http.post('http://api.magnt.co/api/answers',
     {answertext: answerDetails.answertext, personid: answerDetails.personid, questionid: answerDetails.questionid}).
       success(function(data, status, headers, config){
@@ -162,5 +161,9 @@ magntControllers.controller('AnswerQuestion', ['$scope', '$http', '$location', '
       error(function(data, status, headers, config){
         $scope.answerResult = "There was an error submitting your answer";
       });
+      apiAnswers.getAnswers($scope.questionId).then(function(d) {
+        $scope.answerList = d.data;
+        console.log($scope.answerList)
+      })
   }
 }]);
