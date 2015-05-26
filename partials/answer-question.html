@@ -15,7 +15,12 @@
     <li><a ng-href="#/magnets/1/">Questions</a></li>
     <li class="active">Answer</li>
   </ol>
-  <a>
+      <div class="panel panel-default">
+      <div class="panel-body">
+        <h2>{{currentQuestion.questionText}}</h2>
+        <p> Asked by {{currentQuestion.people.fname}} {{currentQuestion.people.lname}}</p>
+      </div>
+    </div>
     <p ng-if="answerList.length === 0" class="notice-error">There doesn't seem to be anything here, you should post first!</p>
     <form ng-controller="AnswerQuestion" action="#">
           <div class="input-group">
@@ -29,6 +34,7 @@
     <div class="list-group">
       <a class="list-group-item" ng-repeat="answer in answerList">
         <h4 class="list-group-item-heading">{{answer.answertext}}</h4>
+        <p class="text-left">Posted by {{answer.person.fname}} {{answer.person.lname}}</p>
       </a>
     </div>
 </div>
