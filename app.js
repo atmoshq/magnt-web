@@ -1,6 +1,5 @@
 var magntWebApp = angular.module('magntWebApp', [
   'ngRoute',
-  'ngCookies',
   'magntControllers'
 ]);
 
@@ -28,7 +27,7 @@ magntWebApp.config(['$routeProvider','$locationProvider',
         controller: 'ListAnswers'
       });
 }]);
-magntWebApp.factory('userData', ['$cookieStore', function($cookieStore) {
+magntWebApp.factory('userData', [function() {
   var token = '';
   var userId = '';
   return {
@@ -37,15 +36,12 @@ magntWebApp.factory('userData', ['$cookieStore', function($cookieStore) {
     },
     setToken: function(tokenId) {
       token = tokenId;
-      $cookieStore.put("userToken", tokenId);
     },
     setUserId: function(userIDin) {
       userId = userIDin;
-      $cookieStore.put("userId", userId);
     },
     getUserId: function() {
       if(!userId){
-        userId = $cookieStore.get(userId);
       }
       return userId;
     }
