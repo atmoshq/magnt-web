@@ -143,7 +143,7 @@ magntControllers.controller('ListAnswers', ['$scope', '$http', '$routeParams', '
 
 // Post answer
 
-magntControllers.controller('AnswerQuestion', ['$scope', '$http', '$location', '$routeParams', 'userData', function($scope, $http , $location, $routeParams, userData){
+magntControllers.controller('AnswerQuestion', ['$scope', '$http', '$location', '$routeParams', 'userData', 'apiAnswers', function($scope, $http , $location, $routeParams, userData, apiAnswers){
   $scope.questionId = $routeParams.questionId;
   $scope.answer = {};
   $scope.answer.submitAnswer = function(item, event) {
@@ -158,6 +158,10 @@ magntControllers.controller('AnswerQuestion', ['$scope', '$http', '$location', '
       success(function(data, status, headers, config){
         if(status == 200) {
           $scope.answerResult = "Got your answer!";
+          apiAnswers.getAnswers(answerDetails.questionid).then(function(d) {
+            console.log(d.data);
+            $scope.answerList.push(d.data);
+          })
         }
         else {
           $scope.answerResult = "There was an error submitting your answer";
@@ -166,8 +170,5 @@ magntControllers.controller('AnswerQuestion', ['$scope', '$http', '$location', '
       error(function(data, status, headers, config){
         $scope.answerResult = "There was an error submitting your answer";
       });
-      apiAnswers.getAnswers($scope.questionId).then(function(d) {
-        $scope.answerList = d.data;
-      })
   }
 }]);
