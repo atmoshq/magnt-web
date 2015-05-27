@@ -75,3 +75,11 @@ magntWebApp.factory('apiAnswers', ['$http', function($http) {
     }
   }
 }]);
+magntWebApp.factory('apiChat', ['$http', function($http) {
+  var messagelist = [];
+  return {
+    getMsgs: function(magnetid) {
+      return $http.get('http://api.magnt.co/api/msgs?filter[where][magnetid]=' + magnetid + '&filter[include]=person');
+    }
+  }
+}]);
