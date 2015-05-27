@@ -172,3 +172,23 @@ magntControllers.controller('AnswerQuestion', ['$scope', '$http', '$location', '
       });
   }
 }]);
+
+
+/*
+
+
+                             _          _           _
+                            | |        | |         | |
+ _ __ ___   __ _  __ _ _ __ | |_    ___| |__   __ _| |_
+| '_ ` _ \ / _` |/ _` | '_ \| __|  / __| '_ \ / _` | __|
+| | | | | | (_| | (_| | | | | |_  | (__| | | | (_| | |_
+|_| |_| |_|\__,_|\__, |_| |_|\__|  \___|_| |_|\__,_|\__|
+                  __/ |
+                 |___/
+
+*/
+// Chat view
+
+magntcontrollers.controller('chatView', ['$scope', '$http', '$routeParams', 'userData', function($scope, $http, $routeParams, userData){
+  
+}]);

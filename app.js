@@ -1,5 +1,6 @@
 var magntWebApp = angular.module('magntWebApp', [
   'ngRoute',
+  'btford.socket-io',
   'magntControllers'
 ]);
 
@@ -22,11 +23,18 @@ magntWebApp.config(['$routeProvider','$locationProvider',
         templateUrl: 'partials/magnet-view.html',
         controller: 'MagnetViewCtrl'
       }).
+      when('/magnets/:magnetId/chat', {
+        templateUrl: 'partials/chat-view.html',
+        controller: 'chatView'
+      }).
       when('/magnets/:magnetId/qa/:questionId/answer', {
         templateUrl: 'partials/answer-question.html',
         controller: 'ListAnswers'
       });
 }]);
+magntWebApp.factory('mySocket', function (socketFactory) {
+  return socketFactory();
+});
 magntWebApp.factory('userData', [function() {
   var token = '';
   var userId = '';
