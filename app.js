@@ -1,5 +1,6 @@
 var magntWebApp = angular.module('magntWebApp', [
   'ngRoute',
+  'btford.socket-io',
   'magntControllers'
 ]);
 
@@ -22,11 +23,18 @@ magntWebApp.config(['$routeProvider','$locationProvider',
         templateUrl: 'partials/magnet-view.html',
         controller: 'MagnetViewCtrl'
       }).
+      when('/magnets/:magnetId/chat', {
+        templateUrl: 'partials/chat-view.html',
+        controller: 'chatView'
+      }).
       when('/magnets/:magnetId/qa/:questionId/answer', {
         templateUrl: 'partials/answer-question.html',
         controller: 'ListAnswers'
       });
 }]);
+magntWebApp.factory('magSocket', function (socketFactory) {
+  return socketFactory();
+});
 magntWebApp.factory('userData', [function() {
   var token = '';
   var userId = '';
@@ -64,6 +72,14 @@ magntWebApp.factory('apiAnswers', ['$http', function($http) {
   return {
     getAnswers: function(questionid) {
       return $http.get('http://api.magnt.co/api/answers/?filter[where][questionid]=' + questionid + '&filter[include]=person');
+    }
+  }
+}]);
+magntWebApp.factory('apiChat', ['$http', function($http) {
+  var messagelist = [];
+  return {
+    getMsgs: function(magnetid) {
+      return $http.get('http://api.magnt.co/api/msgs?filter[where][magnetid]=' + magnetid + '&filter[include]=person');
     }
   }
 }]);

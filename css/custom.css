@@ -6,3 +6,8 @@ body {
   margin: 0 auto
   padding-bottom:10px;
 }
+.msgWho {
+  margin:0;
+  font-size:0.8em;
+  color:#909090;
+}
