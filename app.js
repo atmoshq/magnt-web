@@ -32,7 +32,7 @@ magntWebApp.config(['$routeProvider','$locationProvider',
         controller: 'ListAnswers'
       });
 }]);
-magntWebApp.factory('mySocket', function (socketFactory) {
+magntWebApp.factory('magSocket', function (socketFactory) {
   return socketFactory();
 });
 magntWebApp.factory('userData', [function() {

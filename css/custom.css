@@ -6,27 +6,8 @@ body {
   margin: 0 auto
   padding-bottom:10px;
 }
-.bubble
-{
-position: relative;
-width: 250px;
-height: 120px;
-padding: 0px;
-background: #0084FF;
--webkit-border-radius: 10px;
--moz-border-radius: 10px;
-border-radius: 10px;
-}
-.bubble:after
-{
-content: '';
-position: absolute;
-border-style: solid;
-border-width: 10px 0 10px 20px;
-border-color: transparent #0084FF;
-display: block;
-width: 0;
-z-index: 1;
-right: -20px;
-top: 87px;
+.msgWho {
+  margin:0;
+  font-size:0.8em;
+  color:#909090;
 }

@@ -189,7 +189,8 @@ magntControllers.controller('AnswerQuestion', ['$scope', '$http', '$location', '
 */
 // Chat view
 
-magntControllers.controller('chatView', ['$scope', '$http', '$routeParams', 'userData', 'apiChat', function($scope, $http, $routeParams, userData, apiChat){
+magntControllers.controller('chatView', ['$scope', '$http', '$routeParams', 'userData', 'apiChat', 'magSocket', function($scope, $http, $routeParams, userData, apiChat, magSocket){
+  
   apiChat.getMsgs(1).then(function(d) {
     $scope.messagelist = d.data;
     console.log($scope.messagelist);

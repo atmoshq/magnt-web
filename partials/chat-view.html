@@ -24,7 +24,10 @@
     </div>
     <div class="col-md-4">
       <ul class="list-group">
-        <li ng-repeat="msg in messagelist" class="list-group-item">{{msg.text}}</li>
+        <li ng-repeat="msg in messagelist" class="list-group-item">
+          <p class="msgText">{{msg.text}}</p>
+          <p class="msgWho">{{msg.person.fname}} {{msg.person.lname}}</p>
+        </li>
       </ul>
     </div>
   </div>
