@@ -7,22 +7,29 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
   </div><!-- /.container-fluid -->
 </nav>
+<script>
+$(function() {
+  $('html, body').animate({scrollTop:($(document).height() + 2000)}, 'slow');
+});
+</script>
 <div class="container" ng-controller="chatView">
-  <ol class="breadcrumb">
+  <ol class="breadcrumb affix">
     <li><a href="#/">Home</a></li>
     <li><a ng-href="#/magnets">Magnets</a></li>
     <li class="active">{{magnetInfo.name}}</li>
   </ol>
   <div class="row">
     <div class="col-md-3">
+      <div class="well affix">
         <a href="#">
           <img ng-src="//magnt.co/static/img/{{magnetInfo.icon}}@60px.png" alt="Category icon">
         </a>
         <h4>{{magnetInfo.name}}</h4>
         <p>{{magnetInfo.code}}</p>
         <img class="magnet-pic" src="http://economicdevelopment.org/wp-content/uploads/2012/09/daze-stephen.jpg"/>
+      </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-9">
       <ul class="list-group">
         <li ng-repeat="msg in messagelist" class="list-group-item">
           <p class="msgText">{{msg.text}}</p>
@@ -30,6 +37,17 @@
         </li>
       </ul>
     </div>
+    <div class="col-md-9 col-md-offset-3">
+      <form ng-controller="chatSend" action="#">
+        <div class="input-group chatIn affix">
+          <input ng-model="chat.msgText" type="text" class="form-control" placeholder="Say hello">
+          <span class="input-group-btn">
+            <button class="btn btn-default" ng-click="chat.submitMsg()" type="submit">Send</button>
+          </span>
+        </div><!-- /input-group -->
+      </form>
+    </div>
   </div>
 </div>
+
 <!--- Modals -->
