@@ -159,7 +159,6 @@ magntControllers.controller('AnswerQuestion', ['$scope', '$http', '$location', '
         if(status == 200) {
           $scope.answerResult = "Got your answer!";
           apiAnswers.getAnswers(answerDetails.questionid).then(function(d) {
-            console.log(d.data);
             $scope.answerList.push(d.data);
           })
         }
@@ -175,8 +174,8 @@ magntControllers.controller('AnswerQuestion', ['$scope', '$http', '$location', '
 
 
 /*
-
-
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
                              _          _           _
                             | |        | |         | |
  _ __ ___   __ _  __ _ _ __ | |_    ___| |__   __ _| |_
@@ -186,13 +185,42 @@ magntControllers.controller('AnswerQuestion', ['$scope', '$http', '$location', '
                   __/ |
                  |___/
 
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
 */
 // Chat view
 
 magntControllers.controller('chatView', ['$scope', '$http', '$routeParams', 'userData', 'apiChat', 'magSocket', function($scope, $http, $routeParams, userData, apiChat, magSocket){
-  
-  apiChat.getMsgs(1).then(function(d) {
-    $scope.messagelist = d.data;
-    console.log($scope.messagelist);
+  $scope.messagelist = {};
+  $http.get('http://api.magnt.co/api/magnets/' + $routeParams.magnetId).
+    success(function (data, status, headers, config){
+      $scope.magnetInfo = data;
+    }).
+    error(function (data, status, headers, config){
+    });
+  var whatMagnet = $routeParams.magnetId;
+  magSocket.on('chat out', function(data){
+    console.log(data);
+    $scope.$apply(function(){
+      $scope.messagelist.push(data);
+      console.log($scope.messagelist);
+    });
   });
+  apiChat.getMsgs(whatMagnet).then(function(d) {
+    $scope.messagelist = d.data;
+  });
+}]);
+magntControllers.controller('chatSend', ['$scope', '$http', '$routeParams', 'userData', 'apiChat', 'magSocket', function($scope, $http, $routeParams, userData, apiChat, magSocket){
+  $scope.chat= {};
+  $scope.chat.submitMsg = function(item, event) {
+    var msgDetails = {
+      text: $scope.chat.msgText,
+      personid: userData.getUserId(),
+      magnetid: $routeParams.magnetId
+    };
+    magSocket.emit('chat message', msgDetails);
+    $('html, body').animate({scrollTop:$(document).height()}, 'slow');
+    }
+
 }]);

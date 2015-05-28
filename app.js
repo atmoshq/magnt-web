@@ -33,7 +33,13 @@ magntWebApp.config(['$routeProvider','$locationProvider',
       });
 }]);
 magntWebApp.factory('magSocket', function (socketFactory) {
-  return socketFactory();
+  var magIoSocket = io.connect('http://chat.magnt.co');
+
+  magSocket = socketFactory({
+    ioSocket: magIoSocket
+  })
+
+  return magSocket;
 });
 magntWebApp.factory('userData', [function() {
   var token = '';
