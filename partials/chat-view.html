@@ -9,7 +9,8 @@
 </nav>
 <script>
 $(function() {
-  $('html, body').animate({scrollTop:($(document).height() + 1000)}, 'slow');
+  var scroll = $(document).height() + 1000;
+  $('html, body').animate({scrollTop:(scroll)}, 'slow');
 });
 </script>
 <ol class="breadcrumb affix appnav">
