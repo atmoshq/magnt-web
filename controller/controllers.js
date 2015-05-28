@@ -98,7 +98,7 @@ magntControllers.controller('QuestionListCtrl', ['$scope', '$http', '$location',
 }]);
 
 // Post question
-magntControllers.controller('AskQuestion', ['$scope', '$http', '$routeParams', 'userData', 'apiQuestions', function($scope, $http, $routeParams, userData, apiQuestions){
+magntControllers.controller('AskQuestion', ['$scope', '$http', '$routeParams', '$timeout', 'userData', 'apiQuestions', function($scope, $http, $routeParams, $timeout, userData, apiQuestions){
   $scope.ask = {};
   $scope.ask.submitQuestion = function(item, event) {
     var askDetails = {
@@ -111,8 +111,13 @@ magntControllers.controller('AskQuestion', ['$scope', '$http', '$routeParams', '
       success(function(data, status, headers, config){
         if(status == 200) {
           $scope.askResult = "Got your question.";
-          apiQuestions.getQuestions(askDetails.magnetid).then(function(d) {
-            $scope.questionList = d.data;
+          apiQuestions.singleQuestion(data.id).then(function(d) {
+            $timeout(function(){
+              $scope.$apply(function(){
+                $scope.questionList.push(d.data);
+                console.log($scope.questionList);
+              });
+            }, 0);
           });
         }
         else {
@@ -143,7 +148,7 @@ magntControllers.controller('ListAnswers', ['$scope', '$http', '$routeParams', '
 
 // Post answer
 
-magntControllers.controller('AnswerQuestion', ['$scope', '$http', '$location', '$routeParams', 'userData', 'apiAnswers', function($scope, $http , $location, $routeParams, userData, apiAnswers){
+magntControllers.controller('AnswerQuestion', ['$scope', '$http', '$location', '$routeParams', '$timeout', 'userData', 'apiAnswers', function($scope, $http , $location, $routeParams, $timeout, userData, apiAnswers){
   $scope.questionId = $routeParams.questionId;
   $scope.answer = {};
   $scope.answer.submitAnswer = function(item, event) {
@@ -158,9 +163,13 @@ magntControllers.controller('AnswerQuestion', ['$scope', '$http', '$location', '
       success(function(data, status, headers, config){
         if(status == 200) {
           $scope.answerResult = "Got your answer!";
-          apiAnswers.getAnswers(answerDetails.questionid).then(function(d) {
-            $scope.answerList.push(d.data);
-          })
+          apiAnswers.singleAnswer(data.id).then(function(d) {
+            $timeout(function(){
+              $scope.$apply(function(){
+                $scope.answerList.push(d.data);
+              });
+            }, 0);
+          });
         }
         else {
           $scope.answerResult = "There was an error submitting your answer";

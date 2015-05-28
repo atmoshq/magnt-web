@@ -78,6 +78,9 @@ magntWebApp.factory('apiAnswers', ['$http', function($http) {
   return {
     getAnswers: function(questionid) {
       return $http.get('http://api.magnt.co/api/answers/?filter[where][questionid]=' + questionid + '&filter[include]=person');
+    },
+    singleAnswer: function(answerid) {
+      return $http.get('http://api.magnt.co/api/answers/' + answerid + '?filter[include]=person');
     }
   }
 }]);
