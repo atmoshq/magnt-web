@@ -204,7 +204,6 @@ magntControllers.controller('chatView', ['$scope', '$http', '$routeParams', 'use
     console.log(data);
     $scope.$apply(function(){
       $scope.messagelist.push(data);
-      console.log($scope.messagelist);
     });
   });
   apiChat.getMsgs(whatMagnet).then(function(d) {
