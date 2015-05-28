@@ -12,15 +12,17 @@ $(function() {
   $('html, body').animate({scrollTop:($(document).height() + 2000)}, 'slow');
 });
 </script>
+<ol class="breadcrumb affix appnav">
+  <li><a href="#/">Home</a></li>
+  <li><a ng-href="#/magnets">Magnets</a></li>
+  <li><a ng-href="#/magnets/{{magnetInfo.id}}">{{magnetInfo.name}}</a></li>
+  <li class="active">Chat</li>
+</ol>
+
 <div class="container" ng-controller="chatView">
-  <ol class="breadcrumb affix">
-    <li><a href="#/">Home</a></li>
-    <li><a ng-href="#/magnets">Magnets</a></li>
-    <li class="active">{{magnetInfo.name}}</li>
-  </ol>
   <div class="row">
     <div class="col-md-3">
-      <div class="well affix">
+      <div class="well affix sideinfo">
         <a href="#">
           <img ng-src="//magnt.co/static/img/{{magnetInfo.icon}}@60px.png" alt="Category icon">
         </a>
@@ -30,7 +32,15 @@ $(function() {
       </div>
     </div>
     <div class="col-md-9">
-      <ul class="list-group">
+      <div class="btn-group btn-group-justified affix tabctrl" role="group" aria-label="...">
+        <div class="btn-group" role="group">
+          <a ng-href="#/magnets/1" type="button" class="btn btn-default">Questions</a>
+        </div>
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-default active">Chat</button>
+        </div>
+      </div>
+      <ul class="list-group chatlist">
         <li ng-repeat="msg in messagelist" class="list-group-item">
           <p class="msgText">{{msg.text}}</p>
           <p class="msgWho">{{msg.person.fname}} {{msg.person.lname}}</p>
@@ -39,7 +49,7 @@ $(function() {
     </div>
     <div class="col-md-9 col-md-offset-3">
       <form ng-controller="chatSend" action="#">
-        <div class="input-group chatIn affix">
+        <div class="input-group chatIn affix affix-mobile">
           <input ng-model="chat.msgText" type="text" class="form-control" placeholder="Say hello">
           <span class="input-group-btn">
             <button class="btn btn-default" ng-click="chat.submitMsg()" type="submit">Send</button>

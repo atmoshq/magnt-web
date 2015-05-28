@@ -194,6 +194,12 @@ magntControllers.controller('AnswerQuestion', ['$scope', '$http', '$location', '
 
 magntControllers.controller('chatView', ['$scope', '$http', '$routeParams', 'userData', 'apiChat', 'magSocket', function($scope, $http, $routeParams, userData, apiChat, magSocket){
   $scope.messagelist = [];
+  $http.get('http://api.magnt.co/api/magnets/' + $routeParams.magnetId).
+    success(function (data, status, headers, config){
+      $scope.magnetInfo = data;
+    }).
+    error(function (data, status, headers, config){
+    });
   var whatMagnet = $routeParams.magnetId;
   magSocket.on('welcome', function(data){
     console.log(data);
@@ -209,7 +215,9 @@ magntControllers.controller('chatSend', ['$scope', '$http', '$routeParams', 'use
   $scope.chat= {};
   $scope.chat.submitMsg = function(item, event) {
     var msgDetails = {
-      text: $scope.chat.msgText
+      text: $scope.chat.msgText,
+      personid: userData.getUserId(),
+      magnetid: $routeParams.magnetId
     };
     magSocket.emit('chat message', msgDetails);
     $('html, body').animate({scrollTop:$(document).height()}, 'slow');
