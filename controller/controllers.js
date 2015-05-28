@@ -228,7 +228,8 @@ magntControllers.controller('chatSend', ['$scope', '$http', '$routeParams', 'use
       magnetid: $routeParams.magnetId
     };
     magSocket.emit('chat message', msgDetails);
-    $('html, body').animate({scrollTop:$(document).height()}, 'slow');
+    var scroll = $(document).height() + 1000;
+    $('html, body').animate({scrollTop:(scroll)}, 1);
     $('#chatmsginput').val('');
     }
 
