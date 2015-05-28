@@ -159,7 +159,6 @@ magntControllers.controller('AnswerQuestion', ['$scope', '$http', '$location', '
         if(status == 200) {
           $scope.answerResult = "Got your answer!";
           apiAnswers.getAnswers(answerDetails.questionid).then(function(d) {
-            console.log(d.data);
             $scope.answerList.push(d.data);
           })
         }
@@ -193,7 +192,7 @@ magntControllers.controller('AnswerQuestion', ['$scope', '$http', '$location', '
 // Chat view
 
 magntControllers.controller('chatView', ['$scope', '$http', '$routeParams', 'userData', 'apiChat', 'magSocket', function($scope, $http, $routeParams, userData, apiChat, magSocket){
-  $scope.messagelist = [];
+  $scope.messagelist = {};
   $http.get('http://api.magnt.co/api/magnets/' + $routeParams.magnetId).
     success(function (data, status, headers, config){
       $scope.magnetInfo = data;
@@ -201,11 +200,12 @@ magntControllers.controller('chatView', ['$scope', '$http', '$routeParams', 'use
     error(function (data, status, headers, config){
     });
   var whatMagnet = $routeParams.magnetId;
-  magSocket.on('welcome', function(data){
-    console.log(data);
-  });
   magSocket.on('chat out', function(data){
-    $scope.messagelist.push(data);
+    console.log(data);
+    $scope.$apply(function(){
+      $scope.messagelist.push(data);
+      console.log($scope.messagelist);
+    });
   });
   apiChat.getMsgs(whatMagnet).then(function(d) {
     $scope.messagelist = d.data;
