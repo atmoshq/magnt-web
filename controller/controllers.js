@@ -229,6 +229,7 @@ magntControllers.controller('chatSend', ['$scope', '$http', '$routeParams', 'use
     };
     magSocket.emit('chat message', msgDetails);
     $('html, body').animate({scrollTop:$(document).height()}, 'slow');
+    $('#chatmsginput').val('');
     }
 
 }]);
