@@ -1,23 +1,15 @@
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-static-top">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#/magnets"><img alt="ClassMagnet Logo" src="//magnt.co/static/img/logo-black@23px.png"></a>
-    </div>
+    <div class="navbar-header"></div>
   </div><!-- /.container-fluid -->
 </nav>
 
 <div class="jumbotron">
   <div class="container">
     <h1>ClassMagnet</h1>
-    <p class="lead">Classroom interaction doesn't have to suck</p>
-    <a href="//twitter.com/ClassMagnet" class="btn btn-social-icon btn-twitter">
-      <i class="fa fa-twitter"></i>
-    </a>
-    <a href="//facebook.com/ClassMagnet" class="btn btn-social-icon btn-facebook">
-      <i class="fa fa-facebook-f"></i>
-    </a>
-
+    <h2 class="lead">Classroom interaction doesn't have to suck</h2>
+    <a class="navbar-brand" href="#/magnets"><img alt="ClassMagnet Logo" src="//magnt.co/static/img/logo-black@100px.png"></a>
   </div>
 </div>
 <div class="container">
@@ -30,8 +22,94 @@
         <label class="sr-only" for="exampleInputPassword3">Password</label>
         <input type="password" ng-model="login.userPassword" class="form-control" placeholder="Password">
       </div>
-      <button ng-click="login.submitLogin()" type="submit" class="btn btn-success">Sign in</button>
+      <button role="button" ng-click="login.submitLogin()" type="submit" class="expanded-button btn btn-success">Sign in</button>
       {{loginResult}}
-      <a ng-href="#/signup"><button class="btn btn-primary">Sign up</button></a>
+      <div id="or">OR</div>
+      <button role="button" id="signup_button" class="expanded-button btn btn-primary">Sign up</button>
     </form>
+
+    <article>
+      <p style="font-size: 1.3em; text-transform: uppercase;">Here should be text explaining why signing up. Cool images. etc. </p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+      proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+      proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </article>
 </div>
+
+<footer class="navbar navbar-static-bottom">
+    <a role="button" href="//twitter.com/ClassMagnet" class="btn btn-social btn-twitter">
+      <i class="fa fa-twitter"></i> <span id="twitterLabel"> Follow us on Twitter </span>
+    </a>
+    <a role="button" href="//facebook.com/ClassMagnet" class="btn btn-social btn-facebook">
+      <i class="fa fa-facebook-f"></i> <span id="facebookLabel"> Like us on Facebook </span>
+    </a>
+</footer>
+<div id="black_cover"></div>
+<section class="panel panel-primary" id="signupLightbox">
+  <div class="panel-heading">
+    <span id="remove_lightbox" class="glyphicon glyphicon-remove pull-right"></span>
+    <h2> Sign up! </h2>
+    <h3>Hey, we just need a little bit of information to get going. We don't share this with anybody.</h3>
+  </div>
+  <div class="panel-body">
+    <form name="frm" class="form-horizontal" ng-controller="SignupView" novalidate>
+        <div class="form-group">
+          <label for="inputFname" class="col-sm-2 control-label">First Name</label>
+          <div class="col-sm-10">
+            <input name="fname" required ng-model="signup.userFname" type="text" class="form-control" id="inputFname" placeholder="Jane" ng-minlength="2" ng-maxlength="30">
+            <div ng-if="frm.fname.$dirty && frm.fname.$invalid" role="alert">Must be 2 to 30 characters</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputLname" class="col-sm-2 control-label">Last Name</label>
+          <div class="col-sm-10">
+            <input name="lname" required ng-model="signup.userLname" type="text" class="form-control" id="inputLname" placeholder="Smith" ng-minlength="2" ng-maxlength="30">
+             <div ng-if="frm.lname.$dirty && frm.lname.$invalid" role="alert">Must be 2 to 30 characters</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+          <div class="col-sm-10">
+            <input name="email" required ng-model="signup.userEmail" type="email" class="form-control" id="inputEmail3" placeholder="jane@magnt.co" ng-maxlength="40" style="border-color: {{signupResult.color}}">
+            <div ng-if="frm.email.$dirty && frm.email.$error.email" role="alert">Must be a valid email</div>
+            <div ng-if="frm.email.$dirty && frm.email.$error.maxlength" role="alert">Must be less than 40 characters</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+          <div class="col-sm-10">
+            <input name="pass" required ng-model="signup.userPassword" type="password" class="form-control" id="inputPassword3" placeholder="Password" ng-minlength="5" ng-maxlength="30">
+            <div ng-if="frm.pass.$dirty && frm.pass.$invalid" role="alert">Must be 5 to 30 characters</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputConfPassword3" class="col-sm-2 control-label">Confirm Password</label>
+          <div class="col-sm-10">
+            <input name="cpass" required ng-model="signup.userConfPassword" type="password" class="form-control" id="inputConfPassword3" placeholder="Password" ng-minlength="5" ng-maxlength="30" compare-to="signup.userPassword">
+            <div ng-if="frm.cpass.$invalid && frm.cpass.$dirty" role="alert">Passwords do not match.</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-12">
+            <button ng-disabled="frm.$invalid" ng-click="signup.submitSignup()" type="submit" class="btn btn-default ">Sign up</button>
+          </div>
+        </div>
+        <div id="signupMessage" ng-if="signupResult" class="alert alert-{{signupResult.status}}" role="alert">{{signupResult.message}}</div>
+      </form>
+  </div>
+</section>
+
+<script src="scripts/welcome.js"></script>
