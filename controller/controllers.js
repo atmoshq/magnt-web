@@ -15,15 +15,15 @@ magntControllers.controller('SignupView', ['$scope', '$http', function($scope, $
     {fname: signupDetails.userFname, lname: signupDetails.userLname, email: signupDetails.userEmail, password:signupDetails.userPass}).
       success(function(data, status, headers, config){
         if(status == 200) {
-          $scope.signupResult = {color: "transparent", status: "success" , message: "Thanks for making an account!"};
+          $scope.signupResult = "Thanks for making an account!";
         }
         else {
-          $scope.signupResult = {color: "red", status: "info" , message: "That account already exists. Are you sure you aren't trying to sign in? "};
+          $scope.signupResult = "That account already exists. Are you sure you aren't trying to sign in? ";
         }
       }).
       error(function(data, status, headers, config){
         if(status === 422){
-          $scope.signupResult = {color: "red", status: "danger" , message: "An account with that email already exists!"};
+          $scope.signupResult = "An account with that email already exists!"
         }
       });
   }
