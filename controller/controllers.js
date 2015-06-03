@@ -58,9 +58,6 @@ magntControllers.controller('WelcomeView', ['$scope', '$http', '$location', 'use
         });
       }
     }
-    else{
-      $location.path('/magnets');
-    }
 }]);
 
 // List Magnets
@@ -111,11 +108,11 @@ magntControllers.controller('AskQuestion', ['$scope', '$http', '$routeParams', '
       success(function(data, status, headers, config){
         if(status == 200) {
           $scope.askResult = "Got your question.";
+          console.log(data.id);
           apiQuestions.singleQuestion(data.id).then(function(d) {
             $timeout(function(){
               $scope.$apply(function(){
                 $scope.questionList.push(d.data);
-                console.log($scope.questionList);
               });
             }, 0);
           });
@@ -210,7 +207,6 @@ magntControllers.controller('chatView', ['$scope', '$http', '$routeParams', 'use
     });
   var whatMagnet = $routeParams.magnetId;
   magSocket.on('chat out', function(data){
-    console.log(data);
     $scope.$apply(function(){
       $scope.messagelist.push(data);
     });

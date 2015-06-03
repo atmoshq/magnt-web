@@ -12,7 +12,6 @@ $(document).ready(function(){
   var scroll = $(document).height() + 2000;
   $('html, body').animate({scrollTop:(scroll)}, 1);
 });
-
 </script>
 <ol class="breadcrumb affix appnav">
   <li><a href="#/">Home</a></li>
@@ -50,8 +49,8 @@ $(document).ready(function(){
       </ul>
     </div>
     <div class="col-md-9 col-md-offset-3">
-      <form ng-controller="chatSend" action="#">
-        <div class="input-group chatIn affix affix-mobile">
+      <form class="affix chatIn affix affix-mobile" ng-controller="chatSend" action="#">
+        <div class="input-group chatIn">
           <input id="chatmsginput" ng-model="chat.msgText" type="text" class="form-control" placeholder="Say hello">
           <span class="input-group-btn">
             <button class="btn btn-default" ng-click="chat.submitMsg()" type="submit">Send</button>
