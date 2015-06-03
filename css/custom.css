@@ -172,7 +172,7 @@ article {
 	display: none;
 	width: 320px;
 	margin: 10px auto;
-	visibility: hidden;
+	/*visibility: hidden;*/
 	z-index:1001;
 	min-width: 320px;
 	max-width: 500px;

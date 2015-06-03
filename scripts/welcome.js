@@ -44,8 +44,7 @@ $(function() {
 
 	/* Lightbox Signup */
 	$('#signup_button').click(function(e) {
-		$('#signupLightbox').show().css('visibility', 'visible');
-		$('#black_cover, #signupLightbox').fadeIn(400).css('visibility','visible');
+		$('#black_cover, #signupLightbox').fadeIn(400);
 	});
 
 	$('#black_cover, #remove_lightbox').click(function(e) {
