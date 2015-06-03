@@ -1,20 +1,5 @@
-<div class="ui menu">
-    <a class="active item">
-      <i class="home icon"></i> Home
-    </a>
-    <a class="item">
-      <i class="mail icon"></i> Messages
-    </a>
-    <div class="right menu">
-      <div class="item">
-        <i class="gb flag"></i><i class="fr flag"></i>
-      </div>
-      <div class="item">
-          <div class="ui primary button">Sign Up</div>
-      </div>
-    </div>
-</div>
 <div class="ui page grid">
+  <magnt-nav></magnt-nav>
   <div class="doubling two column row">
     <div class="column">
       <div class="ui segment">
@@ -43,8 +28,8 @@
           <h3 class="ui header">
             <img src="/images/icons/plugin.png">
             <div class="content">
-              Plug-ins
-              <div class="sub header">Check out our plug-in marketplace</div>
+              Stored forever
+              <div class="sub header">Never worry about missing notes again</div>
             </div>
           </h3>
         </div>
@@ -59,14 +44,14 @@
           <div class="two fields">
             <div class="field">
               <label>Email</label>
-              <input ng-model="login.userEmail" placeholder="elon@uottawa.cac" type="email">
+              <input ng-model="login.userEmail" placeholder="elon@uottawa.ca" type="email">
             </div>
             <div class="field">
               <label>Last Name</label>
               <input ng-model="login.userPassword" placeholder="Password" type="password">
             </div>
           </div>
-          <a ng-click="login.submitLogin()" type="submit"><div class="ui submit button">Sign in</div></a>
+          <a ng-click="login.submitLogin()" type="submit"><div class="ui green button">Sign in</div></a>
         </form>
       </div>
     </div>
