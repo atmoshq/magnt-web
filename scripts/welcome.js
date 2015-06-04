@@ -43,11 +43,11 @@ $(function() {
 
 
 	/* Lightbox Signup */
-	$('#signup_button').click(function(e) {
+	$('#signup_button').click(function() {
 		$('#black_cover, #signupLightbox').fadeIn(400);
 	});
 
-	$('#black_cover, #remove_lightbox').click(function(e) {
+	$('#black_cover, #remove_lightbox').click(function() {
 	    $('#black_cover, #signupLightbox').fadeOut(500);
 	});
 
