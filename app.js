@@ -8,10 +8,6 @@ var magntWebApp = angular.module('magntWebApp', [
 magntWebApp.config(['$routeProvider','$locationProvider',
   function($routeProvider, $locationProvider) {
     $routeProvider.
-      when('/signup', {
-        templateUrl: 'partials/signup-view.html',
-        controller: 'SignupView'
-      }).
       when('/', {
         templateUrl: 'partials/welcome-view.html',
         controller: 'WelcomeView'

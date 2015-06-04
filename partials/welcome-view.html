@@ -13,17 +13,17 @@
   </div>
 </div>
 <div class="container">
-    <form class="form-inline" ng-controller="WelcomeView">
+    <form name="signinFrm" class="form-inline" ng-controller="WelcomeView" novalidate>
       <div class="form-group">
         <label class="sr-only" for="exampleInputEmail3">Email address</label>
-        <input type="email" ng-model="login.userEmail" class="form-control" placeholder="Enter email">
+        <input required type="email" ng-model="login.userEmail" class="form-control" placeholder="Enter email" ng-maxlength="40" >
       </div>
       <div class="form-group">
         <label class="sr-only" for="exampleInputPassword3">Password</label>
-        <input type="password" ng-model="login.userPassword" class="form-control" placeholder="Password">
+        <input required type="password" ng-model="login.userPassword" class="form-control" placeholder="Password" ng-maxlength="30">
       </div>
-      <button role="button" ng-click="login.submitLogin()" type="submit" class="expanded-button btn btn-success">Sign in</button>
-      {{loginResult}}
+      <button ng-disabled="signinFrm.$invalid" role="button" ng-click="login.submitLogin()" type="submit" class="expanded-button btn btn-success">Sign in</button>
+      <div id="loginResult" ng-if="loginResult" class="alert alert-danger" role="alert">{{loginResult}}</div>
       <div id="or">OR</div>
       <button role="button" id="signup_button" class="expanded-button btn btn-primary">Sign up</button>
     </form>

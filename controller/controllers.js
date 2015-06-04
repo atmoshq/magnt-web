@@ -50,11 +50,11 @@ magntControllers.controller('WelcomeView', ['$scope', '$http', '$location', 'use
             }
           }
           else {
-            $scope.loginResult = "A user with that email and password combination does not exist.";
+            $scope.loginResult = "Wrong combination!";
           }
         }).
         error(function(data, status, headers, config){
-          $scope.loginResult = "A user writh that email and password combination does not exist";
+          $scope.loginResult = "Wrong combination!";
         });
       }
     }

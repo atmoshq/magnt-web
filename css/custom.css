@@ -90,6 +90,14 @@ article {
 	width: 100% !important;
 }
 
+#loginResult {
+	width: 200px;
+	margin: 6px auto 0 auto;
+	font-size: 1.15em;
+	padding: 11px;
+	font-weight: bold;
+}
+
 
 /* Welcome Responsive */
 @media screen and (max-width: 767px) {
