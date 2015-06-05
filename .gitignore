@@ -1,2 +1,3 @@
 # Build directories for bower
 bower_components
+node_modules
