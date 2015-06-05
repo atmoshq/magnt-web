@@ -1,7 +1,0 @@
-TODO:
-
-message d'erreur signin
-
-detecter email existant on change()
-
-mettre le form de sign up dans une directive a part
