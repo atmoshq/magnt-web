@@ -2,6 +2,7 @@ var magntWebApp = angular.module('magntWebApp', [
   'ngRoute',
   'ui.bootstrap',
   'btford.socket-io',
+  'magntDirective',
   'magntControllers'
 ]);
 
