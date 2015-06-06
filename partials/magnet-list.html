@@ -1,26 +1,28 @@
-<magnt-nav></magnt-nav>
 <magnt-side></magnt-side>
-<div class="ui content">
-  <div ng-controller="MagnetListCtrl" class="ui one column stackable middle center aligned page grid">
-    <div class="fourteen wide column">
-      <h2 class="ui header">
-        <div class="content">
-          Magnets
-        </div>
-      </h2>
-      <div class="ui cards">
-        <div ng-repeat="magnet in magnetList" class="card">
+<div class="pusher">
+  <div class="ui content">
+    <magnt-nav></magnt-nav>
+    <div ng-controller="MagnetListCtrl" class="ui one column stackable middle center aligned page grid">
+      <div class="fourteen wide column">
+        <h2 class="ui header">
           <div class="content">
-            <div class="header"><a ng-href="#/magnets/{{magnet.id}}">{{magnet.name}}</a></div>
-            <div class="meta">2 days ago</div>
-            <div class="description">
-              <p>Cute dogs come in a variety of shapes and sizes. Some cute dogs are cute for their adorable faces, others for their tiny stature, and even others for their massive size.</p>
-              <p>Many people also have their own barometers for what makes a cute dog.</p>
-            </div>
+            Magnets
           </div>
-          <div class="extra content">
-            <i class="check icon"></i>
-            121 Votes
+        </h2>
+        <div class="ui cards">
+          <div ng-repeat="magnet in magnetList" class="card">
+            <div class="content">
+              <div class="header"><a ng-href="#/magnets/{{magnet.id}}">{{magnet.name}}</a></div>
+              <div class="meta">2 days ago</div>
+              <div class="description">
+                <p>Cute dogs come in a variety of shapes and sizes. Some cute dogs are cute for their adorable faces, others for their tiny stature, and even others for their massive size.</p>
+                <p>Many people also have their own barometers for what makes a cute dog.</p>
+              </div>
+            </div>
+            <div class="extra content">
+              <i class="check icon"></i>
+              121 Votes
+            </div>
           </div>
         </div>
       </div>
