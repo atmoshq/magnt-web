@@ -12,3 +12,9 @@ magntDirective.directive('magntSide', function() {
     templateUrl: 'directives/views/magnt-side.html'
   };
 });
+magntDirective.directive('magntHead', function() {
+  return {
+    restrict: 'E',
+    templateUrl: 'directives/views/magnt-head.html'
+  };
+});
