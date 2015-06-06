@@ -7,6 +7,7 @@
   <title>ClassMagnet</title>
   <!-- CSS -->
   <link rel="stylesheet" href="semantic/semantic.css">
+  <link rel="stylesheet" href="css/custom.css">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <!-- JS -->
   <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
@@ -19,11 +20,8 @@
   <script src="https://cdn.socket.io/socket.io-1.3.5.js"></script>
   <script src="app.js"></script>
   <script src="socket.js"></script>
-  <script src="directives/magntNav.js"></script>
-  <script src="directives/magntSide.js"></script>
+  <script src="directives/master-directives.js"></script>
   <script src="controller/controllers.js"></script>
 </head>
-<body>
-  <div ng-view></div>
-</body>
+<ng-view></ng-view>
 </html>
