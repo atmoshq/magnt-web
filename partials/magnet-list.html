@@ -1,30 +1,19 @@
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#/magnets"><img alt="ClassMagnet Logo" src="//magnt.co/static/img/logo-black@23px.png"></a>
+<div ng-controller="MagnetListCtrl" class="ui page grid">
+  <magnt-nav></magnt-nav>
+  <div class="sixteen wide column">
+    <div ng-repeat="magnet in magnetList" class="ui card">
+      <div class="content">
+        <div class="header">{{magnet.name}}</div>
+        <div class="meta">2 days ago</div>
+        <div class="description">
+          <p>Cute dogs come in a variety of shapes and sizes. Some cute dogs are cute for their adorable faces, others for their tiny stature, and even others for their massive size.</p>
+          <p>Many people also have their own barometers for what makes a cute dog.</p>
+        </div>
+      </div>
+      <div class="extra content">
+        <i class="check icon"></i>
+        121 Votes
+      </div>
     </div>
-  </div><!-- /.container-fluid -->
-</nav>
-
-<div class="container" ng-controller="MagnetListCtrl">
-  <ol class="breadcrumb">
-    <li><a href="#/">Home</a></li>
-    <li class="active">Magnets</li>
-  </ol>
-  <div class="btn-group btn-group-justified" role="group" aria-label="...">
-    <div class="btn-group" role="group">
-      <button type="button" class="btn btn-default">All</button>
-    </div>
-    <div class="btn-group" role="group">
-      <button type="button" class="btn btn-default">Yours (coming soon)</button>
-    </div>
-  </div>
-  <p ng-if="questionList.length === 0" class="notice-error">There doesn't seem to be anything here, you should post first!</p>
-  <div class="list-group">
-    <a ng-href="#/magnets/{{magnet.id}}" class="list-group-item" ng-repeat="magnet in magnetList">
-      <h4 class="list-group-item-heading">{{magnet.name}}</h4>
-    </a>
   </div>
 </div>
-<!--- Modals -->

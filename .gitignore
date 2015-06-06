@@ -4,3 +4,5 @@
 # Dependency directory
 >>>>>>> origin/master
 bower_components
+node_modules
+todo.txt
