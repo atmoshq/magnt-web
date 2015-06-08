@@ -1,56 +1,71 @@
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#/magnets"><img alt="ClassMagnet Logo" src="//magnt.co/static/img/logo-black@23px.png"></a>
+<div class="catchall" controller="MagnetViewCtrl">
+  <div class="ui page grid">
+    <div class="right floated left aligned sixteen wide column">
+      <magnt-nav></magnt-nav>
     </div>
-    <!-- Collect the nav links, forms, and other content for toggling -->
-  </div><!-- /.container-fluid -->
-</nav>
-<ol class="breadcrumb appnav affix">
-  <li><a href="#/">Home</a></li>
-  <li><a ng-href="#/magnets">Magnets</a></li>
-  <li class="active">{{magnetInfo.name}}</li>
-</ol>
-<div class="container" ng-controller="MagnetViewCtrl">
-  <div class="row">
-  <div class="col-md-3">
-    <div class="well affix sideinfo">
-        <a href="#">
-          <img ng-src="//magnt.co/static/img/{{magnetInfo.icon}}@60px.png" alt="Category icon">
-        </a>
-        <h4>{{magnetInfo.name}}</h4>
-        <p>{{magnetInfo.code}}</p>
-        <img class="magnet-pic" src="http://economicdevelopment.org/wp-content/uploads/2012/09/daze-stephen.jpg"/>
-    </div>
-  </div>
-  <div class="col-md-9" ng-controller="QuestionListCtrl">
-    <div class="btn-group btn-group-justified affix tabctrl" role="group" aria-label="...">
-      <div class="btn-group" role="group">
-        <button type="button" class="btn btn-default active">Questions</button>
-      </div>
-      <div class="btn-group" role="group">
-        <a ng-href="#/magnets/1/chat" type="button" class="btn btn-default">Chat</a>
-      </div>
-    </div>
-    <p ng-if="questionList.length === 0" class="notice-error">There doesn't seem to be anything here, you should post first!</p>
-    <form ng-controller="AskQuestion" action="#">
-          <div class="input-group affix submitbar">
-            <input ng-model="ask.questionText" type="text" class="form-control" placeholder="What is the meaning of life?">
-            <span class="input-group-btn">
-              <button ng-click="ask.submitQuestion()" type="submit" class="btn btn-default" type="button">Ask</button>
+    <div class="left floated sixteen wide two column row">
+      <div class="four wide column">
+        <div class="ui card">
+          <div class="content">
+            <div class="header">{{magnetInfo.name}}</div>
+            <div class="description">
+              <p>{{magnetInfo.code}}</p>
+            </div>
+          </div>
+          <div class="extra content">
+            <span class="left floated">
+              <i class="user icon"></i>
+              57 people
             </span>
-          </div><!-- /input-group -->
-          <p>{{askResult}}</p>
-    </form>
-    <div class="list-group magntlist">
-      <a ng-href="#/magnets/{{magnetInfo.id}}/qa/{{question.id}}/answer" class="list-group-item" ng-repeat="question in questionList | orderBy:'-up'">
-        <h4 class="list-group-item-heading">{{question.questionText}}</h4>
-        <span class="badge">{{question.up - question.down}}</span>
-        <p class="text-left">Posted by {{question.people.fname}} {{question.people.lname}}</p>
-      </a>
-    </div>
-  </div>
+            <span class="right floated star">
+              <i class="star icon"></i>
+              Subscribe
+            </span>
+          </div>
+        </div>
+        <div class="ui card">
+          <div class="image">
+            <img src="/images/avatar/large/stevie.jpg">
+          </div>
+          <div class="content">
+            <a class="header">Stephen Daze</a>
+            <div class="meta">
+              <span class="date">uOttawa</span>
+            </div>
+          </div>
+          <div class="extra content">
+            <a>
+              <i class="user icon"></i>
+              22 Friends
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="twelve wide column">
+        <div class="ui segment" ng-controller="MagnetViewCtrl">
+          <!--
+            <p ng-if="questionList.length === 0" class="notice-error">There doesn't seem to be anything here, you should post first!</p>
+            <form ng-controller="AskQuestion" action="#">
+                  <div class="input-group affix submitbar">
+                    <input ng-model="ask.questionText" type="text" class="form-control" placeholder="What is the meaning of life?">
+                    <span class="input-group-btn">
+                      <button ng-click="ask.submitQuestion()" type="submit" class="btn btn-default" type="button">Ask</button>
+                    </span>
+                  </div>
+                  <p>{{askResult}}</p>
+            </form>
+          -->
+            <div class="ui divided selection list" ng-controller="QuestionListCtrl">
+              <div ng-repeat="question in questionList | orderBy:'-up'" class="item">
+                <img class="ui avatar image" src="http://semantic-ui.com/images/avatar/small/elliot.jpg">
+                <div class="content">
+                  <div class="header">{{question.people.fname}} {{question.people.lname}}</div>
+                  <div class="description">{{question.questionText}}</div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
   </div>
 </div>
 <!--- Modals -->

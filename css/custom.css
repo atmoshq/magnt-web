@@ -11,3 +11,11 @@
 #welcome-elements {
   margin-top:0rem;
 }
+.hide {
+  visibility:hidden;
+}
+.msgin {
+  position:fixed;
+  z-index:5;
+  width:100%;
+}

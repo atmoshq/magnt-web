@@ -1,63 +1,77 @@
-<div ng-controller="chatView">
-  <div class="ui segment comments">
-    <div class="comment" ng-repeat="msg in messagelist">
-      <div class="content">
-        <a class="author">{{msg.person.fname}} {{msg.person.lname}}</a>
-        <div class="metadata">
-          <div class="date">2 days ago</div>
-          <div class="rating">
-            <i class="star icon"></i>
-            5 Faves
-          </div>
-        </div>
-        <div class="text">
-          {{msg.text}}
-        </div>
+<script>
+  $('.ui.sticky')
+    .sticky({
+      context: '#example1'
+    })
+  ;
+</script>
+<div class="ui segment" id="example1">
+    <div class="left ui rail">
+      <p></p>
+      <p></p>
+      <p></p>
+      <div class="ui sticky">
+        <h3 class="ui header">Stuck Content</h3>
+        <img>
       </div>
     </div>
-    <form ng-controller="chatSend" class="ui reply form">
-      <div class="field">
-        <textarea ng-model="chat.msgText"></textarea>
+    <div class="right ui rail">
+      <div class="ui sticky">
+        <h3 class="ui header">Stuck Content</h3>
+        <img>
       </div>
-      <div ng-click="chat.submitMsg()" type="submit" class="ui primary submit labeled icon button">
-        <i class="icon edit"></i> Add Reply
-      </div>
-    </form>
-
-  </div>
-<!--
-      <div class="ui comments">
-        <h3 class="ui dividing header">Messages</h3>
-        <div ng-repeat="msg in messagelist" class="comment">
-          <a class="avatar">
-            <img src="/images/avatar/small/matt.jpg">
-          </a>
-          <div class="content">
-            <a class="author">{{msg.person.fname}} {{msg.person.lname}}</a>
-            <div class="metadata">
-              <span class="date">Today at 5:42PM</span>
-            </div>
-            <div class="text">
-              {{msg.text}}
+    </div>
+    <div ng-controller="chatView">
+          <div class="comment" ng-repeat="msg in messagelist">
+            <div class="content">
+              <a class="author">{{msg.person.fname}} {{msg.person.lname}}</a>
+              <div class="metadata">
+                <div class="date">2 days ago</div>
+                <div class="rating">
+                  <i class="star icon"></i>
+                  5 Faves
+                </div>
+              </div>
+              <div class="text">
+                {{msg.text}}
+              </div>
             </div>
           </div>
         </div>
-        <form class="ui reply form">
+  </div>
+<!---
+      <div class="ui left very close rail">
+        <div class="ui segment">
+          Left Rail Content
+        </div>
+      </div>
+      <div class="msgin">
+        <form ng-controller="chatSend" class="ui reply form">
           <div class="field">
-            <textarea></textarea>
+            <input type="text" ng-model="chat.msgText"></input>
           </div>
-          <div class="ui blue labeled submit icon button">
+          <div ng-click="chat.submitMsg()" type="submit" class="hide ui primary submit labeled icon button">
             <i class="icon edit"></i> Add Reply
           </div>
         </form>
       </div>
-      <form class="affix chatIn affix affix-mobile" ng-controller="chatSend" action="#">
-        <div class="input-group chatIn">
-          <input id="chatmsginput" ng-model="chat.msgText" type="text" class="form-control" placeholder="Say hello">
-          <span class="input-group-btn">
-            <button class="btn btn-default" ng-click="chat.submitMsg()" type="submit">Send</button>
-          </span>
-        </div>/input-group
-      </form>
-      -->
-</div>
+      <div ng-controller="chatView">
+          <div class="ui segment comments">
+            <div class="comment" ng-repeat="msg in messagelist">
+              <div class="content">
+                <a class="author">{{msg.person.fname}} {{msg.person.lname}}</a>
+                <div class="metadata">
+                  <div class="date">2 days ago</div>
+                  <div class="rating">
+                    <i class="star icon"></i>
+                    5 Faves
+                  </div>
+                </div>
+                <div class="text">
+                  {{msg.text}}
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+-->
