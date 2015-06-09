@@ -1,7 +1,11 @@
 <div class="catchall" controller="MagnetViewCtrl">
+  <div class="ui divided grid">
+    <div class="right floated left aligned sixteen wide column">
       <magnt-nav></magnt-nav>
-      <div class="panel one">
-        <div class="ui card">
+    </div>
+    <div class="left floated sixteen wide three column row">
+      <div class="four wide column">
+        <div class="ui card fixed first">
           <div class="content">
             <div class="header">{{magnetInfo.name}}</div>
             <div class="description">
@@ -19,7 +23,7 @@
             </span>
           </div>
         </div>
-        <div class="ui large vertical menu">
+        <div class="ui large vertical menu fixed second">
           <div class="item">
             <div class="ui input"><input placeholder="Search..." type="text"></div>
           </div>
@@ -46,9 +50,8 @@
               <a class="item"><i class="settings icon"></i> Account Settings</a>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="panel two">
+        </div>      </div>
+      <div class="eight wide column">
         <div class="ui segment" ng-controller="MagnetViewCtrl">
           <!--
             <p ng-if="questionList.length === 0" class="notice-error">There doesn't seem to be anything here, you should post first!</p>
@@ -73,10 +76,9 @@
             </div>
         </div>
       </div>
-      <div class="panel three">
+      <div class="four wide column">
         <div ng-controller="chatView">
               <div class="ui segment comment chatmsg" ng-repeat="msg in messagelist | orderBy:'createdat'">
-                <img class="ui avatar image" src="http://semantic-ui.com/images/avatar/small/elliot.jpg">
                 <div class="content">
                   <a class="author">{{msg.person.fname}} {{msg.person.lname}}</a>
                   <div class="metadata">
@@ -89,4 +91,5 @@
               </div>
             </div>
       </div>
+  </div>
 </div>

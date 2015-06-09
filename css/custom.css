@@ -1,3 +1,36 @@
+.fixed{
+  position:fixed !important;
+  width:100%;
+}
+.fixed.first {
+  top:50px !important;
+}
+.fixed.second {
+  top:170px !important;
+}
+.panel {
+  padding:10px;
+  position:absolute;
+  top:50px;
+  bottom:0px;
+  z-index:4;
+  overflow:auto;
+  width:25%;
+  border-left: 1px solid grey
+}
+.panel.one {
+  left:0px;
+  width:20%
+}
+.panel.two {
+  left:20%;
+  width:50%
+}
+.panel.three {
+  left:72%;
+  width:25%
+}
+
 .img-bg {
   height:100%;
   background-image: url('https://classmagnet.co/images/header@1440.jpg');
@@ -18,4 +51,20 @@
   position:fixed;
   z-index:5;
   width:100%;
+}
+.chatmsg .content {
+  display:inline-block;
+}
+.chatmsg .author {
+  font-size:0.8rem;
+  display:inline-block;
+}
+.chatmsg .metadata {
+  font-size:0.7rem;
+  display:inline-block;
+}
+.chatmsg .metadata .date {
+  font-size:0.7rem;
+  color:rgba(77, 77, 77, 0.8);
+  display:inline-block;
 }
