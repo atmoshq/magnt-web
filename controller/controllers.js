@@ -87,9 +87,8 @@ magntControllers.controller('MagnetViewCtrl', ['$scope', '$http', '$location', '
 }]);
 
 // List questions
-magntControllers.controller('QuestionListCtrl', ['$scope', '$http', '$routeParams', 'apiQuestions', function($scope, $http , $routeParams, apiQuestions){
-  apiQuestions.getQuestions(1).then(function(d) {
-    console.log(d);
+magntControllers.controller('QuestionListCtrl', ['$scope', '$http', 'apiQuestions', function($scope, $http , apiQuestions){
+  apiQuestions.getQuestions($scope.magnetId).then(function(d) {
     $scope.questionList = d.data;
   });
 }]);

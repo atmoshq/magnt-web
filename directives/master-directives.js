@@ -18,3 +18,9 @@ magntDirective.directive('magntHead', function() {
     templateUrl: 'directives/views/magnt-head.html'
   };
 });
+magntDirective.directive('magntQuestions', function() {
+  return {
+    restrict: 'E',
+    templateUrl: 'directives/views/magnt-questions.html'
+  };
+});
