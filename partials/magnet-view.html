@@ -59,23 +59,9 @@
         </div>
           <p>{{askResult}}</p>
       </form>
-<div class="ui segment divided list questions" ng-controller="QuestionListCtrl">
-  <div ng-repeat="question in questionList | orderBy:'-up'" class="item">
-    <a class="selectable question" ng-href="#/magnets/{{magnetId}}/qa/{{qusetion.id}}/answer">
-      <img class="ui avatar image inline top" src="http://semantic-ui.com/images/avatar/small/elliot.jpg">
-      <div class="content inline">
-        <div class="header">{{question.people.fname}} {{question.people.lname}}</div>
-        <div class="description">{{question.questionText}}</div>
-        <div am-time-ago="question.createdat" class="question date"></div>
+      <div ng-controller="QuestionListCtrl">
+        <magnt-questions></magnt-questions>
       </div>
-    </a>
-    <div class="score">
-      <i class="chevron up icon vote"></i>
-      <span class="total">{{question.up - question.down}}</span>
-      <i class="chevron down icon vote"></i>
-    </div>
-  </div>
-</div>
 </div>
 <div class="panel three">
   <div ng-controller="chatView">
