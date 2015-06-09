@@ -21,12 +21,15 @@
 .panel {
   padding:10px;
   position:absolute;
-  top:50px;
+  top:38px;
   bottom:0px;
   z-index:4;
   overflow:auto;
   width:25%;
   border-left: 1px solid rgba(39, 41, 43, 0.15)
+}
+div.ui.large.vertical.menu.panelement {
+  width:100%;
 }
 .panel.one {
   left:0px;
@@ -77,6 +80,23 @@
 }
 i.icon.vote {
   display:block;
+  margin:0;
+  margin-left: auto;
+  margin-right: auto;
+}
+i.icon.vote.up:hover {
+  color:#55C838
+}
+i.icon.vote.down:hover {
+  color:#F00;
+}
+
+span.total {
+  text-align:center;
+  margin:0;
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
 }
 .questions {
   padding-bottom:10px;
