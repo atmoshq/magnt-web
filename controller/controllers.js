@@ -107,6 +107,14 @@ magntControllers.controller('AskQuestion', ['$scope', '$http', '$routeParams', '
       success(function(data, status, headers, config){
         if(status == 200) {
           $scope.askResult = "Got your question.";
+          console.log(data.id);
+          apiQuestions.singleQuestion(data.id).then(function(d) {
+            $timeout(function(){
+              $scope.$apply(function(){
+                $scope.questionList.push(d.data);
+              });
+            }, 0);
+          });
         }
         else {
           $scope.askResult = "There was an error submitting your question";
