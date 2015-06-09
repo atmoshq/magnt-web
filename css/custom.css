@@ -69,6 +69,35 @@
   margin-top:0rem;
 }
 /*************************************
+ QUESTION IMPLEMENTATION
+ **************************************/
+.score {
+  float:right;
+  display:inline-block;
+}
+i.icon.vote {
+  display:block;
+}
+.questions {
+  padding-bottom:10px;
+}
+.question.date {
+  padding-top:0.4rem;
+  font-size:0.8rem;
+  color:rgba(77, 77, 77, 0.8);
+}
+.selectable.question {
+  width:95%;
+  display:inline-block;
+  vertical-align: top
+}
+.inline.top {
+  vertical-align:top;
+}
+.selectable:hover {
+  background-color:#F7F7F7;
+}
+/*************************************
  CHAT IMPLEMENTATION
 **************************************/
 .msgin {
