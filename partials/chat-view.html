@@ -1,64 +1,55 @@
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#/magnets"><img alt="ClassMagnet Logo" src="//magnt.co/static/img/logo-black@23px.png"></a>
-    </div>
-    <!-- Collect the nav links, forms, and other content for toggling -->
-  </div><!-- /.container-fluid -->
-</nav>
-<script>
-$(document).ready(function(){
-  var scroll = $(document).height() + 2000;
-  $('html, body').animate({scrollTop:(scroll)}, 1);
-});
-</script>
-<ol class="breadcrumb affix appnav">
-  <li><a href="#/">Home</a></li>
-  <li><a ng-href="#/magnets">Magnets</a></li>
-  <li><a ng-href="#/magnets/{{magnetInfo.id}}">{{magnetInfo.name}}</a></li>
-  <li class="active">Chat</li>
-</ol>
-
-<div class="container" ng-controller="chatView">
-  <div class="row">
-    <div class="col-md-3">
-      <div class="well affix sideinfo">
-        <a href="#">
-          <img ng-src="//magnt.co/static/img/{{magnetInfo.icon}}@60px.png" alt="Category icon">
-        </a>
-        <h4>{{magnetInfo.name}}</h4>
-        <p>{{magnetInfo.code}}</p>
-        <img class="magnet-pic" src="http://economicdevelopment.org/wp-content/uploads/2012/09/daze-stephen.jpg"/>
-      </div>
-    </div>
-    <div class="col-md-9">
-      <div class="btn-group btn-group-justified affix tabctrl" role="group" aria-label="...">
-        <div class="btn-group" role="group">
-          <a ng-href="#/magnets/1" type="button" class="btn btn-default">Questions</a>
+<div class="ui segment">
+    <div ng-controller="chatView">
+          <div class="comment" ng-repeat="msg in messagelist">
+            <div class="content">
+              <a class="author">{{msg.person.fname}} {{msg.person.lname}}</a>
+              <div class="metadata">
+                <div class="date">2 days ago</div>
+                <div class="rating">
+                  <i class="star icon"></i>
+                  5 Faves
+                </div>
+              </div>
+              <div class="text">
+                {{msg.text}}
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="btn-group" role="group">
-          <button type="button" class="btn btn-default active">Chat</button>
-        </div>
-      </div>
-      <ul class="list-group chatlist">
-        <li ng-repeat="msg in messagelist" class="list-group-item">
-          <p class="msgText">{{msg.text}}</p>
-          <p class="msgWho">{{msg.person.fname}} {{msg.person.lname}}</p>
-        </li>
-      </ul>
-    </div>
-    <div class="col-md-9 col-md-offset-3">
-      <form class="affix chatIn affix affix-mobile" ng-controller="chatSend" action="#">
-        <div class="input-group chatIn">
-          <input id="chatmsginput" ng-model="chat.msgText" type="text" class="form-control" placeholder="Say hello">
-          <span class="input-group-btn">
-            <button class="btn btn-default" ng-click="chat.submitMsg()" type="submit">Send</button>
-          </span>
-        </div><!-- /input-group -->
-      </form>
-    </div>
   </div>
-</div>
-
-<!--- Modals -->
+<!---
+      <div class="ui left very close rail">
+        <div class="ui segment">
+          Left Rail Content
+        </div>
+      </div>
+      <div class="msgin">
+        <form ng-controller="chatSend" class="ui reply form">
+          <div class="field">
+            <input type="text" ng-model="chat.msgText"></input>
+          </div>
+          <div ng-click="chat.submitMsg()" type="submit" class="hide ui primary submit labeled icon button">
+            <i class="icon edit"></i> Add Reply
+          </div>
+        </form>
+      </div>
+      <div ng-controller="chatView">
+          <div class="ui segment comments">
+            <div class="comment" ng-repeat="msg in messagelist">
+              <div class="content">
+                <a class="author">{{msg.person.fname}} {{msg.person.lname}}</a>
+                <div class="metadata">
+                  <div class="date">2 days ago</div>
+                  <div class="rating">
+                    <i class="star icon"></i>
+                    5 Faves
+                  </div>
+                </div>
+                <div class="text">
+                  {{msg.text}}
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+-->

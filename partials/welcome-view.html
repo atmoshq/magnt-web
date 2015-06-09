@@ -1,59 +1,68 @@
-<div class="ui page grid">
+<div class="img-bg">
   <magnt-nav></magnt-nav>
-  <div class="doubling two column row">
-    <div class="column">
-      <div class="ui segment">
-        <div class="ui vertical segment">
-          <h1 class="ui header">Welcome to ClassMagnet</h1>
-        </div>
-        <div class="ui vertical segment">
-          <h3 class="ui header">
-            <i class="huge comments outline icon"></i>
-            <div class="content">
-              Realtime chat
-              <div class="sub header">Talk to everyone in your class instantly</div>
+    <div id="welcome-elements" class="ui page grid">
+      <div class="doubling two column row">
+        <div class="column">
+          <div class="ui segment">
+            <div class="ui vertical segment">
+              <h1 class="ui header">Welcome to ClassMagnet</h1>
             </div>
-          </h3>
-        </div>
-        <div class="ui vertical segment">
-          <h3 class="ui header">
-            <img src="/images/icons/plugin.png">
-            <div class="content">
-              Questions
-              <div class="sub header">Post your questions and crowdsource your answers</div>
+            <div class="ui vertical segment">
+              <h3 class="ui header">
+                <i class="huge comments outline icon"></i>
+                <div class="content">
+                  Realtime chat
+                  <div class="sub header">Talk to everyone in your class instantly</div>
+                </div>
+              </h3>
             </div>
-          </h3>
-        </div>
-        <div class="ui vertical segment">
-          <h3 class="ui header">
-            <img src="/images/icons/plugin.png">
-            <div class="content">
-              Stored forever
-              <div class="sub header">Never worry about missing notes again</div>
+            <div class="ui vertical segment">
+              <h3 class="ui header">
+                <img src="/images/icons/plugin.png">
+                <div class="content">
+                  Questions
+                  <div class="sub header">Post your questions and crowdsource your answers</div>
+                </div>
+              </h3>
             </div>
-          </h3>
-        </div>
-        <div class="ui vertical segment">
-          <i class="large facebook icon"></i><i class="large twitter icon"></i>
-        </div>
-      </div>
-    </div>
-    <div class="column">
-      <div class="ui fluid form segment">
-        <form ng-controller="WelcomeView">
-          <div class="two fields">
-            <div class="field">
-              <label>Email</label>
-              <input ng-model="login.userEmail" placeholder="elon@uottawa.ca" type="email">
+            <div class="ui vertical segment">
+              <h3 class="ui header">
+                <img src="/images/icons/plugin.png">
+                <div class="content">
+                  Stored forever
+                  <div class="sub header">Never worry about missing notes again</div>
+                </div>
+              </h3>
             </div>
-            <div class="field">
-              <label>Last Name</label>
-              <input ng-model="login.userPassword" placeholder="Password" type="password">
+            <div class="ui vertical segment">
+              <i class="large facebook icon"></i><i class="large twitter icon"></i>
             </div>
           </div>
-          <a ng-click="login.submitLogin()" type="submit"><div class="ui green button">Sign in</div></a>
-        </form>
+        </div>
+        <div class="column">
+          <div class="ui aligned center fluid form segment">
+            <form ng-controller="WelcomeView">
+              <div class="two fields">
+                <div class="field">
+                  <label>Email</label>
+                  <input ng-model="login.userEmail" placeholder="elon@uottawa.ca" type="email">
+                </div>
+                <div class="field">
+                  <label>Last Name</label>
+                  <input ng-model="login.userPassword" placeholder="Password" type="password">
+                </div>
+              </div>
+              <a ng-click="login.submitLogin()" type="submit"><div class="ui green button">Sign in</div></a>
+            </form>
+            <div class="ui horizontal divider">
+              Or
+            </div>
+            <div class="ui teal labeled icon button">
+              Make a new account
+              <i class="add icon"></i>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
 </div>

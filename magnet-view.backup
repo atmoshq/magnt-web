@@ -1,0 +1,95 @@
+<div class="catchall" controller="MagnetViewCtrl">
+  <div class="ui divided grid">
+    <div class="right floated left aligned sixteen wide column">
+      <magnt-nav></magnt-nav>
+    </div>
+    <div class="left floated sixteen wide three column row">
+      <div class="four wide column">
+        <div class="ui card fixed first">
+          <div class="content">
+            <div class="header">{{magnetInfo.name}}</div>
+            <div class="description">
+              <p>{{magnetInfo.code}}</p>
+            </div>
+          </div>
+          <div class="extra content">
+            <span class="left floated">
+              <i class="user icon"></i>
+              57 people
+            </span>
+            <span class="right floated star">
+              <i class="star icon"></i>
+              Subscribe
+            </span>
+          </div>
+        </div>
+        <div class="ui large vertical menu fixed second">
+          <div class="item">
+            <div class="ui input"><input placeholder="Search..." type="text"></div>
+          </div>
+          <div class="item">
+            <i class="home icon"></i> Home
+            <div class="menu">
+              <a class="active item">Search</a>
+              <a class="item">Add</a>
+              <a class="item">Remove</a>
+            </div>
+          </div>
+          <a class="item">
+            <i class="grid layout icon"></i> Browse
+          </a>
+          <a class="item">
+            <i class="mail icon"></i> Messages
+          </a>
+          <div class="ui dropdown item">
+            More
+            <i class="dropdown icon"></i>
+            <div class="menu">
+              <a class="item"><i class="edit icon"></i> Edit Profile</a>
+              <a class="item"><i class="globe icon"></i> Choose Language</a>
+              <a class="item"><i class="settings icon"></i> Account Settings</a>
+            </div>
+          </div>
+        </div>      </div>
+      <div class="eight wide column">
+        <div class="ui segment" ng-controller="MagnetViewCtrl">
+          <!--
+            <p ng-if="questionList.length === 0" class="notice-error">There doesn't seem to be anything here, you should post first!</p>
+            <form ng-controller="AskQuestion" action="#">
+                  <div class="input-group affix submitbar">
+                    <input ng-model="ask.questionText" type="text" class="form-control" placeholder="What is the meaning of life?">
+                    <span class="input-group-btn">
+                      <button ng-click="ask.submitQuestion()" type="submit" class="btn btn-default" type="button">Ask</button>
+                    </span>
+                  </div>
+                  <p>{{askResult}}</p>
+            </form>
+          -->
+            <div class="ui divided selection list" ng-controller="QuestionListCtrl">
+              <div ng-repeat="question in questionList | orderBy:'-up'" class="item">
+                <img class="ui avatar image" src="http://semantic-ui.com/images/avatar/small/elliot.jpg">
+                <div class="content">
+                  <div class="header">{{question.people.fname}} {{question.people.lname}}</div>
+                  <div class="description">{{question.questionText}}</div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div class="four wide column">
+        <div ng-controller="chatView">
+              <div class="ui segment comment chatmsg" ng-repeat="msg in messagelist | orderBy:'createdat'">
+                <div class="content">
+                  <a class="author">{{msg.person.fname}} {{msg.person.lname}}</a>
+                  <div class="metadata">
+                    <div am-time-ago="msg.createdat" class="date"></div>
+                  </div>
+                  <div class="text">
+                    {{msg.text}}
+                  </div>
+                </div>
+              </div>
+            </div>
+      </div>
+  </div>
+</div>
