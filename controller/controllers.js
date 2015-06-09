@@ -107,14 +107,6 @@ magntControllers.controller('AskQuestion', ['$scope', '$http', '$routeParams', '
       success(function(data, status, headers, config){
         if(status == 200) {
           $scope.askResult = "Got your question.";
-          console.log(data.id);
-          apiQuestions.singleQuestion(data.id).then(function(d) {
-            $timeout(function(){
-              $scope.$apply(function(){
-                $scope.questionList.push(d.data);
-              });
-            }, 0);
-          });
         }
         else {
           $scope.askResult = "There was an error submitting your question";
@@ -214,15 +206,12 @@ magntControllers.controller('chatView', ['$scope', '$http', '$routeParams', 'use
 magntControllers.controller('chatSend', ['$scope', '$http', '$routeParams', 'userData', 'apiChat', 'magSocket', function($scope, $http, $routeParams, userData, apiChat, magSocket){
   $scope.chat= {};
   $scope.chat.submitMsg = function(item, event) {
+    console.log("got a message");
     var msgDetails = {
       text: $scope.chat.msgText,
       personid: userData.getUserId(),
       magnetid: $routeParams.magnetId
     };
     magSocket.emit('chat message', msgDetails);
-    var scroll = $(document).height() + 2000;
-    $('html, body').animate({scrollTop:(scroll)}, 1);
-    $('#chatmsginput').val('');
-    }
-
+  }
 }]);

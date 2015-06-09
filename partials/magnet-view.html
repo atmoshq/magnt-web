@@ -78,11 +78,11 @@
       </div>
     </div>
     <div class="msgin">
-      <form ng-controller="chatSend" class="ui reply form">
+      <form ng-submit="chat.submitMsg()" ng-controller="chatSend" class="ui reply form">
         <div class="field">
           <input placeholder="Write your message here!" type="text" ng-model="chat.msgText"></input>
         </div>
-        <div ng-click="chat.submitMsg()" type="submit" class="hide ui primary submit labeled icon button">
+        <div ng-enter="chat.submitMsg()" type="submit" class="hide ui primary submit labeled icon button">
           <i class="icon edit"></i> Add Reply
         </div>
       </form>
