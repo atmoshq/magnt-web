@@ -1,13 +1,23 @@
+/**************************************
+ EASY IMPLEMENTATION FOR FIXED ELEMENTS
+***************************************/
 .fixed{
   position:fixed !important;
   width:100%;
 }
-.fixed.first {
-  top:50px !important;
+.hide {
+  visibility:hidden;
 }
-.fixed.second {
-  top:170px !important;
+.inline {
+  display:inline-block;
 }
+#questionfield {
+  width:85%;
+}
+
+/*************************************
+ VED'S 3 PANEL IMPLEMENTATION
+**************************************/
 .panel {
   padding:10px;
   position:absolute;
@@ -16,21 +26,35 @@
   z-index:4;
   overflow:auto;
   width:25%;
-  border-left: 1px solid grey
+  border-left: 1px solid rgba(39, 41, 43, 0.15)
 }
 .panel.one {
   left:0px;
-  width:20%
+  width:20%;
+  min-width:200px
 }
 .panel.two {
   left:20%;
-  width:50%
+  width:50%;
+  min-width:400px;
 }
 .panel.three {
-  left:72%;
-  width:25%
+  bottom:2.5rem;
+  left:70%;
+  width:30%;
+  min-width:300px;
 }
-
+@media (max-width:900px) {
+  .panel.two {
+      left:200px;
+  }
+  .panel.three {
+    left:600px;
+  }
+}
+/*************************************
+ WELCOME VIEW
+**************************************/
 .img-bg {
   height:100%;
   background-image: url('https://classmagnet.co/images/header@1440.jpg');
@@ -44,13 +68,16 @@
 #welcome-elements {
   margin-top:0rem;
 }
-.hide {
-  visibility:hidden;
-}
+/*************************************
+ CHAT IMPLEMENTATION
+**************************************/
 .msgin {
   position:fixed;
+  bottom:-65px;
+  right:0;
   z-index:5;
-  width:100%;
+  width:30%;
+  min-width:300px
 }
 .chatmsg .content {
   display:inline-block;
