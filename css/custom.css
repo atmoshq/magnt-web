@@ -117,6 +117,18 @@ span.total {
 .selectable:hover {
   background-color:#F7F7F7;
 }
+.answers {
+  margin-left:20px;
+}
+.answers.list {
+  border-left: 1px solid black;
+}
+
+.answers.date {
+  padding-top:0.4rem;
+  font-size:0.8rem;
+  color:rgba(77, 77, 77, 0.8);
+}
 /*************************************
  CHAT IMPLEMENTATION
 **************************************/

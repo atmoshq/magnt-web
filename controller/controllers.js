@@ -46,7 +46,7 @@ magntControllers.controller('WelcomeView', ['$scope', '$http', '$location', 'use
             userData.setUserId(data.userId);
             if(userData.getToken()){
               $scope.loginResult = "Thanks for logging in!";
-              $location.path('/magnets');
+              $location.path('/magnets/1');
             }
           }
           else {
@@ -87,9 +87,17 @@ magntControllers.controller('MagnetViewCtrl', ['$scope', '$http', '$location', '
 }]);
 
 // List questions
-magntControllers.controller('QuestionListCtrl', ['$scope', '$http', 'apiQuestions', function($scope, $http , apiQuestions){
+magntControllers.controller('QuestionListCtrl', ['$scope', '$http', 'apiQuestions', 'apiAnswers', function($scope, $http , apiQuestions, apiAnswers){
+  $scope.isCollapsed = false;
+  $scope.pickQuestion = {};
+  $scope.pickQuestion.go = function(item, event){
+    apiAnswers.getAnswers(item).then(function(d){
+      $scope.answerList = d.data;
+    });
+  };
   apiQuestions.getQuestions($scope.magnetId).then(function(d) {
     $scope.questionList = d.data;
+    console.log($scope.questionList);
   });
 }]);
 
@@ -121,7 +129,6 @@ magntControllers.controller('AskQuestion', ['$scope', '$http', '$routeParams', '
 // List Answers
 
 magntControllers.controller('ListAnswers', ['$scope', '$http', '$routeParams', 'userData', 'apiAnswers', 'apiQuestions', function($scope, $http, $routeParams, userData, apiAnswers, apiQuestions){
-  $scope.questionId = $routeParams.questionId;
   apiAnswers.getAnswers($scope.questionId).then(function(d) {
     $scope.answerList = d.data;
   });

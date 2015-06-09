@@ -1,6 +1,7 @@
 var magntWebApp = angular.module('magntWebApp', [
   'ngRoute',
   'btford.socket-io',
+  'ui.bootstrap',
   'angularMoment',
   'magntDirective',
   'magntControllers'
@@ -17,17 +18,9 @@ magntWebApp.config(['$routeProvider','$locationProvider',
         templateUrl: 'partials/welcome-view.html',
         controller: 'WelcomeView'
       }).
-      when('/magnets', {
-        templateUrl: 'partials/magnet-list.html',
-        controller: 'MagnetListCtrl'
-      }).
       when('/magnets/:magnetId', {
         templateUrl: 'partials/magnet-view.html',
         controller: 'MagnetViewCtrl'
-      }).
-      when('/magnets/:magnetId/chat', {
-        templateUrl: 'partials/chat-view.html',
-        controller: 'chatView'
       }).
       when('/magnets/:magnetId/qa/:questionId/answer', {
         templateUrl: 'partials/answer-question.html',

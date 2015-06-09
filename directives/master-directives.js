@@ -24,3 +24,9 @@ magntDirective.directive('magntQuestions', function() {
     templateUrl: 'directives/views/magnt-questions.html'
   };
 });
+magntDirective.directive('magntAnswers', function() {
+  return {
+    restrict: 'E',
+    templateUrl: 'directives/views/magnt-answers.html'
+  };
+});
