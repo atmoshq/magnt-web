@@ -1,6 +1,7 @@
 // module
 var magntControllers = angular.module('magntControllers', []);
 
+
 // Signup view
 magntControllers.controller('SignupView', ['$scope', '$http', function($scope, $http){
   $scope.signup = {};
