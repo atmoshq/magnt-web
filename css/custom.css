@@ -1,5 +1,5 @@
 /**************************************
- EASY IMPLEMENTATION FOR FIXED ELEMENTS
+ GENERAL ELEMENTS
 ***************************************/
 .fixed{
   position:fixed !important;
@@ -13,6 +13,11 @@
 }
 #questionfield {
   width:85%;
+}
+.divider {
+  padding-bottom:1rem;
+  width:100%;
+  border-bottom: 1px solid #E4E4E4;
 }
 
 /*************************************
