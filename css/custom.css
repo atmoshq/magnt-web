@@ -77,6 +77,25 @@ div.ui.large.vertical.menu.panelement {
 #welcome-elements {
   margin-top:0rem;
 }
+#welcomeinfo {
+  padding-top:10rem;
+  color:#fff;
+}
+.point {
+  display:inline-block;
+}
+#welcomeinfo .pointimg {
+  padding-top:5px;
+  display:inline-block;
+  vertical-align:top;
+}
+#welcomeinfo h3 {
+  padding-bottom:0;
+  margin-bottom:0;
+}
+#welcomecontrol {
+  margin-top:10rem;
+}
 /*************************************
  QUESTION IMPLEMENTATION
  **************************************/
