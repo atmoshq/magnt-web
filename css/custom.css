@@ -42,6 +42,7 @@ div.ui.large.vertical.menu.panelement {
   min-width:400px;
 }
 .panel.three {
+  background-color:#fff;
   bottom:2.5rem;
   left:70%;
   width:30%;
@@ -129,6 +130,9 @@ span.total {
   font-size:0.8rem;
   color:rgba(77, 77, 77, 0.8);
 }
+.answerstext {
+  display:inline-block;
+}
 /*************************************
  CHAT IMPLEMENTATION
 **************************************/
@@ -140,18 +144,29 @@ span.total {
   width:30%;
   min-width:300px
 }
-.chatmsg .content {
+.chat {
+  margin-top:10px;
+}
+.chatmsg {
+  color:#fff;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  border-radius: 1rem;
+  padding:0.5rem;
+  background-color:#4C9ED9;
   display:inline-block;
 }
-.chatmsg .author {
+.chatauthor {
   font-size:0.8rem;
+  color:rgba(77, 77, 77, 0.8);
   display:inline-block;
 }
-.chatmsg .metadata {
+.chatmeta {
+  margin-left:45px;
   font-size:0.7rem;
-  display:inline-block;
+  display:block;
 }
-.chatmsg .metadata .date {
+.chatdate {
   font-size:0.7rem;
   color:rgba(77, 77, 77, 0.8);
   display:inline-block;

@@ -65,16 +65,16 @@
 </div>
 <div class="panel three">
   <div ng-controller="chatView">
-    <div class="ui segment comment chatmsg" ng-repeat="msg in messagelist | orderBy:'createdat'">
+    <div class="ui comment chat" ng-repeat="msg in messagelist | orderBy:'createdat'">
       <img class="ui avatar image inline top" src="http://semantic-ui.com/images/avatar/small/elliot.jpg">
-      <div class="content">
-        <a class="author">{{msg.person.fname}} {{msg.person.lname}}</a>
-        <div class="metadata">
-          <div am-time-ago="msg.createdat" class="date"></div>
-        </div>
+      <div class="chatmsg">
         <div class="text">
           {{msg.text}}
         </div>
+      </div>
+      <div class="chatmeta">
+        <div class="chatauthor">{{msg.person.fname}} {{msg.person.lname}} | </div>
+        <div am-time-ago="msg.createdat" class="chatdate"></div>
       </div>
     </div>
     <div class="msgin">

@@ -1,9 +1,8 @@
 part of magnt answers
 <div class="answers block" ng-controller="ListAnswers" ng-repeat="answer in answerList">
   <img class="ui avatar image inline top" src="http://semantic-ui.com/images/avatar/small/elliot.jpg">
-  <div class="answers text">{{answer.answertext}}</h4>
+  <div class="answerstext">{{answer.answertext}}</h4>
   <div class="answers person">
-    Posted by {{answer.person.fname}} {{answer.person.lname}}
-    <span am-time-ago="answer.createdat" class="answers date"></span>
+    <span class="answers date">Posted by {{answer.person.fname}} {{answer.person.lname}}</span><span am-time-ago="answer.createdat" class="answers date"></span>
   </div>
 </div>
