@@ -1,8 +1,14 @@
-part of magnt answers
-<div class="answers block" ng-controller="ListAnswers" ng-repeat="answer in answerList">
-  <img class="ui avatar image inline top" src="http://semantic-ui.com/images/avatar/small/elliot.jpg">
-  <div class="answerstext">{{answer.answertext}}</h4>
-  <div class="answers person">
-    <span class="answers date">Posted by {{answer.person.fname}} {{answer.person.lname}}</span><span am-time-ago="answer.createdat" class="answers date"></span>
+<div class="answer divided" ng-controller="ListAnswers" ng-repeat="answer in answerList">
+  <div class="answerscore">
+    <i class="chevron up icon vote"></i>
+    <span class="total">{{question.up - question.down}}</span>
+    <i class="chevron down icon vote"></i>
+  </div>
+  <img class="ui answerpic" src="http://semantic-ui.com/images/avatar/small/elliot.jpg">
+  <div class="answercontent">
+    <div class="answermeta">
+      Posted by {{answer.person.fname}} {{answer.person.lname}}</span><span am-time-ago="answer.createdat"></span>
+    </div>
+    <div class="answertext">{{answer.answertext}}</h4>
   </div>
 </div>

@@ -76,14 +76,20 @@ div.ui.large.vertical.menu.panelement {
  QUESTION IMPLEMENTATION
  **************************************/
 .score {
+  vertical-align:middle;
   float:right;
-  display:inline-block;
 }
 i.icon.vote {
   display:block;
   margin:0;
   margin-left: auto;
   margin-right: auto;
+}
+i.icon.vote.up {
+  vertical-align:top;
+}
+i.icon.vote.down {
+  vertical-align:bottom;
 }
 i.icon.vote.up:hover {
   color:#55C838
@@ -99,16 +105,38 @@ span.total {
   margin-left:auto;
   margin-right:auto;
 }
+.question{
+  padding-top:10px;
+  padding-bottom:10px;
+  display:inline-block;
+}
 .questions {
+  padding-top:10px;
   padding-bottom:10px;
 }
-.question.date {
-  padding-top:0.4rem;
+.questionpic {
+  vertical-align:top;
+  margin-right: 0.5em;
+  display: inline-block;
+  width: 2.5em;
+  height: 2.5em;
+  border-radius: 500rem;
+}
+.questioncontent {
+  display:inline-block;
+}
+.questiontext {
+  text-decoration:bold;
+  font-size:1.1rem;
+}
+.questionmeta{
+  margin-bottom:-0.6rem;
+  margin-left:3.2rem;
   font-size:0.8rem;
   color:rgba(77, 77, 77, 0.8);
 }
 .selectable.question {
-  width:95%;
+  width:100%;
   display:inline-block;
   vertical-align: top
 }
@@ -118,20 +146,41 @@ span.total {
 .selectable:hover {
   background-color:#F7F7F7;
 }
-.answers {
-  margin-left:20px;
+.answer {
+  width:100%;
+  padding-bottom:1rem;
+  display:block;
 }
-.answers.list {
-  border-left: 1px solid black;
+.answers {
+  padding-left:3rem;
+  padding-right:1.5rem;
+}
+.answercontent {
+  vertical-align:top;
+  width:70%;
+  display:inline-block;
+}
+.answerpic {
+  vertical-align:top;
+  margin-right: 0.5em;
+  display: inline-block;
+  width: 2.0em;
+  height: 2.0em;
+  border-radius: 500rem;
 }
 
-.answers.date {
-  padding-top:0.4rem;
+.answermeta{
   font-size:0.8rem;
   color:rgba(77, 77, 77, 0.8);
 }
-.answerstext {
-  display:inline-block;
+.answerscore {
+  vertical-align:middle;
+  float:right;
+  margin-right:20px;
+}
+
+.answertext {
+  font-size:1rem;
 }
 /*************************************
  CHAT IMPLEMENTATION

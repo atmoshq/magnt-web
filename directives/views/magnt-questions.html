@@ -1,17 +1,18 @@
 <div class="ui segment divided list questions">
   <div ng-repeat="question in questionList | orderBy:'-up'" class="item">
-    <a ng-click="isCollapsed = !isCollapsed; pickQuestion.go(question.id)" class="selectable question">
-      <img class="ui avatar image inline top" src="http://semantic-ui.com/images/avatar/small/elliot.jpg">
-      <div class="content inline">
-        <div class="header">{{question.people.fname}} {{question.people.lname}}{{question.questionText}}</div>
-      </a>
-      <div class="score">
-        <i class="chevron up icon vote"></i>
-        <span class="total">{{question.up - question.down}}</span>
-        <i class="chevron down icon vote"></i>
+    <div class="score">
+      <i class="chevron up icon vote"></i>
+      <span class="total">{{question.up - question.down}}</span>
+      <i class="chevron down icon vote"></i>
+    </div>
+    <a ng-click="isCollapsed = !isCollapsed; pickQuestion.go(question.id)" class="selectable">
+      <div class="questionmeta">{{question.people.fname}} {{question.people.lname}} <span am-time-ago="question.createdat"></span></div>
+      <img class="ui questionpic" src="http://semantic-ui.com/images/avatar/small/elliot.jpg">
+      <div class="question">
+        <div class="questiontext">{{question.questionText}}</div>
       </div>
-      <div am-time-ago="question.createdat" class="question date"></div>
-        <div class="answers list" ng-if="isCollapsed">
+    </a>
+        <div class="answers" ng-if="isCollapsed">
           <magnt-answers></magnt-answers>
         </div>
       </div>
