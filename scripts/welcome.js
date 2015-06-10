@@ -1,8 +1,12 @@
 $(function() {
 	/* Cached variables */
 	$signupForm = $('#signupLightbox form');
+	$userAgent = navigator.userAgent.toLowerCase();
+
 
 	/* Functions */
+
+	// change buttons <--> icons depending on screen width
 	function changeSocialButtonsDisplay() {
 		if ($(window).width() <= 470 ) {
 			$('.btn-twitter')
@@ -30,8 +34,20 @@ $(function() {
 		}
 	}
 
+	// action to do if Android user. Used for scalability.
+	// TODO: NEEDS TESTING ON AN ANDROID DEVIDE
+	function isAndroid() {
+		$('#appOnGooglePlay').show();
+	}
+
+
+
 	/* Calls on ready() */
 	changeSocialButtonsDisplay();
+
+	if (~$userAgent.indexOf("android"))
+		isAndroid();
+
 
 
 	/* Events */
