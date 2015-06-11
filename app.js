@@ -1,5 +1,6 @@
 var magntWebApp = angular.module('magntWebApp', [
   'ngRoute',
+  'ngCookies',
   'btford.socket-io',
   'ui.bootstrap',
   'angularMoment',
@@ -27,6 +28,44 @@ magntWebApp.config(['$routeProvider','$locationProvider',
         controller: 'ListAnswers'
       });
 }]);
+magntWebApp.run(function($rootScope, userData){
+  $rootScope.errors = [
+    "Thanks for logging in!",
+    "There was an error logging in",
+    "Good bye",
+    "Got your question",
+    "Connection failed"
+  ];
+  userData.getToken();
+  userData.getUserId();
+});
+
+magntWebApp.factory('signIn', ['$rootScope','$http', '$location', 'userData', function ($rootScope, $http, $location, userData) {
+  return {
+    login: function(userEmail, userPassword) {
+        $http.post('http://api.magnt.co/api/people/login',
+        {email: userEmail, password:userPassword}).
+          success(function(data, status, headers, config){
+            if(status == 200) {
+                userData.setToken(data.id);
+                $location.path('/magnets/1');
+            }
+            else {
+              /*
+              $scope.loginResult = "A user with that email and password combination does not exist.";
+              */
+            }
+          }).
+          error(function(data, status, headers, config){
+            /*
+            $scope.loginResult = "A user writh that email and password combination does not exist";
+            */
+          });
+          return 0;
+    }
+  }
+}]);
+
 magntWebApp.factory('magSocket', function (socketFactory) {
   var magIoSocket = io.connect('http://chat.magnt.co');
 
@@ -36,23 +75,43 @@ magntWebApp.factory('magSocket', function (socketFactory) {
 
   return magSocket;
 });
-magntWebApp.factory('userData', [function() {
-  var token = '';
-  var userId = '';
+
+magntWebApp.factory('userData', ['$cookies','$rootScope', function($cookies, $rootScope) {
+  var nextWeek = new Date();
+  nextWeek.setDate(nextWeek.getDate() + 7);
+
   return {
     getToken: function() {
-      return token;
+      if($rootScope.tokenId) {
+        return $rootScope.tokenId;
+      }
+      else if($cookies.get('tokenId')) {
+        $rootScope.tokenId = $cookies.get('tokenId');
+        return $cookies.get('tokenId');
+      }
+      else {
+        return 0;
+      }
     },
     setToken: function(tokenId) {
-      token = tokenId;
+      $rootScope.tokenId = tokenId;
+      $cookies.put('tokenId', tokenId, [{expires:nextWeek}]);
     },
-    setUserId: function(userIDin) {
-      userId = userIDin;
+    setUserId: function(userId) {
+      $rootScope.userId = userId;
+      $cookies.put('userId', userId, [{expires:nextWeek}]);
     },
     getUserId: function() {
-      if(!userId){
+      if($rootScope.userId) {
+        return $rootScope.userId;
       }
-      return userId;
+      else if($cookies.get('userId')) {
+        $rootScope.userId = $cookies.get('userId');
+        return $cookies.get('userId');
+      }
+      else {
+        return 0;
+      }
     }
   }
 

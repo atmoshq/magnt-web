@@ -31,33 +31,19 @@ magntControllers.controller('SignupView', ['$scope', '$http', function($scope, $
 }]);
 
 // Welcome View
-magntControllers.controller('WelcomeView', ['$scope', '$http', '$location', 'userData', function($scope, $http, $location, userData){
-  if(!userData.getToken()){
-    $scope.login = {};
-    $scope.login.submitLogin = function(item, event) {
-      var loginDetails = {
-        userEmail: $scope.login.userEmail,
-        userPassword: $scope.login.userPassword
-      };
-      $http.post('http://api.magnt.co/api/people/login',
-      {email: loginDetails.userEmail, password:loginDetails.userPassword}).
-        success(function(data, status, headers, config){
-          if(status == 200) {
-            userData.setToken(data.id);
-            userData.setUserId(data.userId);
-            if(userData.getToken()){
-              $scope.loginResult = "Thanks for logging in!";
-              $location.path('/magnets/1');
-            }
-          }
-          else {
-            $scope.loginResult = "A user with that email and password combination does not exist.";
-          }
-        }).
-        error(function(data, status, headers, config){
-          $scope.loginResult = "A user writh that email and password combination does not exist";
-        });
+magntControllers.controller('WelcomeView', ['$scope', '$http', '$location', 'userData', 'signIn', function($scope, $http, $location, userData, signIn){
+    if(!userData.getToken){
+      $scope.login = {};
+      $scope.login.submitLogin = function(item, event) {
+        var loginDetails = {
+          userEmail: $scope.login.userEmail,
+          userPassword: $scope.login.userPassword
+        };
+        signIn.login(loginDetails.userEmail, loginDetails.userPassword);
       }
+    }
+    else {
+      $location.path('magnets/1');
     }
 }]);
 

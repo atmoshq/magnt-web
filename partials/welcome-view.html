@@ -1,31 +1,14 @@
 <div class="img-bg">
     <div id="welcome-elements" class="ui page grid">
-      <div class="doubling two column row">
+      <div class="three column row">
         <div class="column">
-          <div id="welcomeinfo">
-            <div class="ui vertical segment">
-              <h1>Classroom interaction doesn't have to suck</h1>
-            </div>
-            <div class="ui vertical segment">
-                <i class="large comments outline icon pointimg"></i>
-                <div class="point">
-                  <h3>Realtime chat</h3>
-                  <p>Skip the icebreakers and easily chat with anyone in your class</p>
-                </div>
-            </div>
-            <div class="ui vertical segment">
-                <i class="large comments outline icon pointimg"></i>
-                <div class="point">
-                  <h3>Supercharged questions</h3>
-                  <p>Post your questions and crowdsource your answers</p>
-                </div>
-            </div>
-          </div>
         </div>
-        <div class="column">
+        <div class="column welcome">
+          <div id="welcomeinfo">
+            <h1>Classroom interaction doesn't have to suck</h1>
+          </div>
           <div id="welcomecontrol" class="ui aligned center fluid form segment">
             <form ng-controller="WelcomeView">
-              <div class="two fields">
                 <div class="field">
                   <label>Email</label>
                   <input ng-model="login.userEmail" placeholder="kanye@uottawa.ca" type="email">
@@ -34,7 +17,6 @@
                   <label>Password</label>
                   <input ng-model="login.userPassword" placeholder="Password" type="password">
                 </div>
-              </div>
               <a ng-click="login.submitLogin()" type="submit"><div class="ui green button">Sign in</div></a>
             </form>
             <div class="ui horizontal divider">
@@ -45,6 +27,8 @@
               <i class="add icon"></i>
             </div>
           </div>
+        </div>
+        <div class="column">
         </div>
       </div>
     </div>
