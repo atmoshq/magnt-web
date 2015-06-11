@@ -60,7 +60,7 @@ div.ui.large.vertical.menu.panelement {
 **************************************/
 .img-bg {
   height:100%;
-  background-image: url('https://classmagnet.co/images/header@1440.jpg');
+  background-image: url('../img/header-bg.jpg');
   background-repeat: no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
