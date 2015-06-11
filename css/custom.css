@@ -1,5 +1,10 @@
 /**************************************
- EASY IMPLEMENTATION FOR FIXED ELEMENTS
+  Custom Fonts
+***************************************/
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300);
+
+/**************************************
+ GENERAL ELEMENTS
 ***************************************/
 .fixed{
   position:fixed !important;
@@ -13,6 +18,11 @@
 }
 #questionfield {
   width:85%;
+}
+.divider {
+  padding-bottom:1rem;
+  width:100%;
+  border-bottom: 1px solid #E4E4E4;
 }
 
 /*************************************
@@ -42,6 +52,7 @@ div.ui.large.vertical.menu.panelement {
   min-width:400px;
 }
 .panel.three {
+  background-color:#fff;
   bottom:2.5rem;
   left:70%;
   width:30%;
@@ -58,6 +69,9 @@ div.ui.large.vertical.menu.panelement {
 /*************************************
  WELCOME VIEW
 **************************************/
+.welcome {
+  min-width:300px;
+}
 .img-bg {
   height:100%;
   background-image: url('https://classmagnet.co/images/header@1440.jpg');
@@ -71,18 +85,45 @@ div.ui.large.vertical.menu.panelement {
 #welcome-elements {
   margin-top:0rem;
 }
+#welcomeinfo {
+  padding-top:10rem;
+  color:#fff;
+}
+.point {
+  display:inline-block;
+}
+#welcomeinfo .pointimg {
+  padding-top:5px;
+  display:inline-block;
+  vertical-align:top;
+}
+#welcomeinfo h3,h1 {
+  text-align:center;
+  font-family: "Open Sans", sans-serif;
+  font-size:2rem;
+  text-shadow: 0 1px 4px rgba(0,0,0,.5);
+  font-weight:300;
+  padding-bottom:0;
+  margin-bottom:0;
+}
 /*************************************
  QUESTION IMPLEMENTATION
  **************************************/
 .score {
+  vertical-align:middle;
   float:right;
-  display:inline-block;
 }
 i.icon.vote {
   display:block;
   margin:0;
   margin-left: auto;
   margin-right: auto;
+}
+i.icon.vote.up {
+  vertical-align:top;
+}
+i.icon.vote.down {
+  vertical-align:bottom;
 }
 i.icon.vote.up:hover {
   color:#55C838
@@ -98,16 +139,38 @@ span.total {
   margin-left:auto;
   margin-right:auto;
 }
+.question{
+  padding-top:10px;
+  padding-bottom:10px;
+  display:inline-block;
+}
 .questions {
+  padding-top:10px;
   padding-bottom:10px;
 }
-.question.date {
-  padding-top:0.4rem;
+.questionpic {
+  vertical-align:top;
+  margin-right: 0.5em;
+  display: inline-block;
+  width: 2.5em;
+  height: 2.5em;
+  border-radius: 500rem;
+}
+.questioncontent {
+  display:inline-block;
+}
+.questiontext {
+  text-decoration:bold;
+  font-size:1.1rem;
+}
+.questionmeta{
+  margin-bottom:-0.6rem;
+  margin-left:3.2rem;
   font-size:0.8rem;
   color:rgba(77, 77, 77, 0.8);
 }
 .selectable.question {
-  width:95%;
+  width:100%;
   display:inline-block;
   vertical-align: top
 }
@@ -116,6 +179,42 @@ span.total {
 }
 .selectable:hover {
   background-color:#F7F7F7;
+}
+.answer {
+  width:100%;
+  padding-bottom:1rem;
+  display:block;
+}
+.answers {
+  padding-left:3rem;
+  padding-right:1.5rem;
+}
+.answercontent {
+  vertical-align:top;
+  width:70%;
+  display:inline-block;
+}
+.answerpic {
+  vertical-align:top;
+  margin-right: 0.5em;
+  display: inline-block;
+  width: 2.0em;
+  height: 2.0em;
+  border-radius: 500rem;
+}
+
+.answermeta{
+  font-size:0.8rem;
+  color:rgba(77, 77, 77, 0.8);
+}
+.answerscore {
+  vertical-align:middle;
+  float:right;
+  margin-right:20px;
+}
+
+.answertext {
+  font-size:1rem;
 }
 /*************************************
  CHAT IMPLEMENTATION
@@ -128,18 +227,29 @@ span.total {
   width:30%;
   min-width:300px
 }
-.chatmsg .content {
+.chat {
+  margin-top:10px;
+}
+.chatmsg {
+  color:#fff;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  border-radius: 1rem;
+  padding:0.5rem;
+  background-color:#4C9ED9;
   display:inline-block;
 }
-.chatmsg .author {
+.chatauthor {
   font-size:0.8rem;
+  color:rgba(77, 77, 77, 0.8);
   display:inline-block;
 }
-.chatmsg .metadata {
+.chatmeta {
+  margin-left:45px;
   font-size:0.7rem;
-  display:inline-block;
+  display:block;
 }
-.chatmsg .metadata .date {
+.chatdate {
   font-size:0.7rem;
   color:rgba(77, 77, 77, 0.8);
   display:inline-block;
