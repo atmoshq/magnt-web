@@ -4,6 +4,20 @@
   padding-bottom:10px;
 }
 
+.img-bg {
+  height:100%;
+  background-image: url('https://classmagnet.co/images/header@1440.jpg');
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: center;
+}
+#welcome-elements {
+  margin-top:0rem;
+}
+
 body {
 	min-width: 310px;
 	height: 100%;
@@ -19,6 +33,11 @@ button:focus {
 
 
 /* Welcome styling */
+
+.navbar-static-top, .navbar-static-bottom {
+	background-color: rgba(255,59,48,0.7);	
+}
+
 h1 {
 	font-family: 'Arial Black';
 	font-weight: 900;
@@ -53,6 +72,7 @@ footer {
 
 .jumbotron {
 	height: 250px;
+	background-color: rgba(235,235,235,0.7);
 }
 
 article {
@@ -60,6 +80,10 @@ article {
 	font-family: 'Verdana';
 	font-size: 1.1em;
 	margin-top: 40px;
+	background-color: rgba(235,235,235,0.6);
+	padding: 15px;
+	border-radius: 15px;
+	color: black;
 }
 
 .expanded-button {
@@ -67,12 +91,16 @@ article {
 	height: 45px;
 }
 
-#or {
+/*#or {
 	margin: 13px 0;
 	font-family: 'Indie Flower', 'Verdna';
 	font-size: 1.4em;
 	font-weight: bold;
-}
+	background-color: rgba(235,235,235,0.7);
+	display: inline-block;
+	padding: 2px;
+	border-radius: 5px;
+}*/
 
 .form-inline {
 	text-align: center;
@@ -96,6 +124,10 @@ article {
 	font-size: 1.15em;
 	padding: 11px;
 	font-weight: bold;
+}
+
+#signup_button {
+	margin-top: 10px;
 }
 
 #appOnGooglePlay {
