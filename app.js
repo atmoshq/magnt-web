@@ -3,7 +3,8 @@ var magntWebApp = angular.module('magntWebApp', [
   'ngCookies',
   'magntControllers',
   'pwdCheck',
-  'mySignup'
+  'mySignup',
+  'domManipulation'
 ]);
 
 magntWebApp.config(['$routeProvider','$locationProvider',
