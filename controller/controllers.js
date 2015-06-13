@@ -34,6 +34,7 @@ magntControllers.controller('WelcomeView', ['$scope', '$http', '$location', 'use
   if(!userData.getToken()){
     $scope.login = {};
     $scope.login.submitLogin = function(item, event) {
+      $scope.loading = "loading";
       var loginDetails = {
         userEmail: $scope.login.userEmail,
         userPassword: $scope.login.userPassword
@@ -51,10 +52,12 @@ magntControllers.controller('WelcomeView', ['$scope', '$http', '$location', 'use
           }
           else {
             $scope.loginResult = "Wrong combination!";
+            $scope.loading = "";
           }
         }).
         error(function(data, status, headers, config){
           $scope.loginResult = "Wrong combination!";
+          $scope.loading = "";
         });
       }
     }

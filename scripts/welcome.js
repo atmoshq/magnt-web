@@ -9,28 +9,28 @@ $(function() {
 	// change buttons <--> icons depending on screen width
 	function changeSocialButtonsDisplay() {
 		if ($(window).width() <= 470 ) {
-			$('.btn-twitter')
-				.removeClass('btn-social')
-				.addClass('btn-social-icon');
-			$('#twitterLabel').css('visibility', 'hidden');
+			$('.ui.button.twitter')
+				.addClass('ui-icon');
+			$('#twitterLabel').hide();
+			// $('#twitterLabel').css('visibility', 'hidden');
 
 
-			$('.btn-facebook')
-				.removeClass('btn-social')
-				.addClass('btn-social-icon');
-			$('#facebookLabel').css('visibility', 'hidden');
+			$('.ui.button.facebook')
+				.addClass('ui-icon');
+			$('#facebookLabel').hide();
+			// $('#facebookLabel').css('visibility', 'hidden');
 		}
 		else {
-			$('.btn-twitter')
-				.removeClass('btn-social-icon')
-				.addClass('btn-social');
-			$('#twitterLabel').css('visibility', 'visible');
+			$('.ui.button.twitter')
+				.removeClass('ui-icon')
+			$('#twitterLabel').show();
+			// $('#twitterLabel').css('visibility', 'visible');
 
 
-			$('.btn-facebook')
-				.removeClass('btn-social-icon')
-				.addClass('btn-social');
-			$('#facebookLabel').css('visibility', 'visible');
+			$('.ui.button.facebook')
+				.removeClass('ui-icon')
+			$('#facebookLabel').show();
+			// $('#facebookLabel').css('visibility', 'visible');
 		}
 	}
 

@@ -48,6 +48,10 @@ h2.lead {
 	font-size: 1.8em;
 }
 
+.ui-icon {
+	padding: 12px 6px 12px 12px !important;
+}
+
 .jumbotron a {
 	position: relative;
 	top: -150px;
@@ -62,7 +66,7 @@ footer {
 	margin: 60px 0 0 0 !important;
 }
 
-.btn-twitter {
+.ui.twitter.button {
 	margin-right: 15px;
 }
 

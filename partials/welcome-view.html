@@ -23,10 +23,10 @@
           <label class="sr-only" for="exampleInputPassword3">Password</label>
           <input required type="password" ng-model="login.userPassword" class="form-control" placeholder="Password" ng-maxlength="30">
         </div>
-        <button ng-disabled="signinFrm.$invalid" role="button" ng-click="login.submitLogin()" type="submit" class="expanded-button btn btn-success">Sign in</button>
+        <button ng-disabled="signinFrm.$invalid" role="button" ng-click="login.submitLogin()" type="submit" class="expanded-button ui green button {{loading}}">Sign in</button>
         <div id="loginResult" ng-if="loginResult" class="alert alert-danger" role="alert">{{loginResult}}</div>
         <!-- <div id="or">OR</div> -->
-        <button role="button" id="signup_button" class="expanded-button btn btn-primary">Sign up</button>
+        <button role="button" id="signup_button" class="expanded-button ui blue button">Sign up</button>
       </form>
 
       <aside id="appOnGooglePlay">
@@ -60,11 +60,11 @@
   </div>
 
   <footer class="navbar navbar-static-bottom">
-      <a role="button" href="//twitter.com/ClassMagnet" class="btn btn-social btn-twitter">
-        <i class="fa fa-twitter"></i> <span id="twitterLabel"> Follow us on Twitter </span>
+      <a role="button" href="//twitter.com/ClassMagnet" class="ui twitter button">
+        <i class="twitter icon"></i> <span id="twitterLabel"> Follow us on Twitter </span>
       </a>
-      <a role="button" href="//facebook.com/ClassMagnet" class="btn btn-social btn-facebook">
-        <i class="fa fa-facebook-f"></i> <span id="facebookLabel"> Like us on Facebook </span>
+      <a role="button" href="//facebook.com/ClassMagnet" class="ui facebook button">
+        <i class="facebook icon"></i> <span id="facebookLabel"> Like us on Facebook </span>
       </a>
   </footer>
   <div id="black_cover"></div>
