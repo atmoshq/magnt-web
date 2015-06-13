@@ -1,6 +1,6 @@
-var app = angular.module("app", []);
+var mySignup = angular.module('mySignup', []);
 
-app.directive('mySignup', function() {
+mySignup.directive('mySignup', function() {
 	return {
 		restrict: 'E',
 		templateUrl: 'directives/mySignup.html'
