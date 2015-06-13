@@ -26,8 +26,23 @@
   <script src="socket.js"></script>
   <script src="directives/master-directives.js"></script>
   <script src="controller/controllers.js"></script>
+  <noscript>
+    <h1>ClassMagnet is a JavaScript WebApp, so we need it to be enabled to work. Thanks!</h1>
+    <h1 style="text-align:center;"> If you need help to enable JavaScript in your browser, follow this <a href="http://www.enable-javascript.com">link</a></h1>
+   </noscript>
 </head>
 <body>
-  <div ng-view></div>
+    <script>
+      var $userAgent = navigator.userAgent.toLowerCase();
+
+      if (/msie ([678])/.test($userAgent)) {
+        var version = RegExp.$1;
+
+        $('body').html('<h1>Your browser (Internet Explorer '+ version +') is old. Because we use modern technologies, we do not support IE8 and below.</h1><h1>Please update your browser in order to use ClassMagnet!');
+      }
+      else
+        $('body').html('<div ng-view></div>');
+
+    </script>
 </body>
 </html>
