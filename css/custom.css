@@ -335,6 +335,7 @@ section.panel > .panel-heading {
 .panel-heading h3 {
 	font-size: 1.3em;
 	font-family: 'Indie Flower', 'Verdana';
+	text-align: justify;
 }
 
 .panel-heading h2 {
