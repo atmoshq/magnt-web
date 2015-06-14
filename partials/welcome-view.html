@@ -1,32 +1,33 @@
 <div class="img-bg">
-  <nav class="navbar navbar-default navbar-static-top">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header"></div>
-    </div><!-- /.container-fluid -->
-  </nav>
+  <div class="navbar-static-top"></div>
 
-  <div class="jumbotron">
+  <header class="jumbotron">
     <div class="container">
       <h1>ClassMagnet</h1>
       <h2 class="lead">Classroom interaction doesn't have to suck</h2>
-      <a class="navbar-brand" href="#/magnets"><img alt="ClassMagnet Logo" src="//magnt.co/static/img/logo-black@100px.png"></a>
-    </div>
-  </div>
-  <div class="container">
+      <a class="navbar-brand" href="#/"><img alt="ClassMagnet Logo" src="//magnt.co/static/img/logo-black@100px.png"></a>
+    </header>
+  </header>
+  <main class="container">
       <form name="signinFrm" class="form-inline" ng-controller="WelcomeView" novalidate>
-        <div class="form-group">
-          <label class="sr-only" for="exampleInputEmail3">Email address</label>
-          <input required type="email" ng-model="login.userEmail" class="form-control" placeholder="Enter email" ng-maxlength="40" >
+        <div class="fluid ui input icon">
+          <i class="at icon"></i>
+          <input id="email_signin" required type="email" ng-model="login.userEmail" placeholder="Enter email" ng-maxlength="40" >
         </div>
-        <div class="form-group">
-          <label class="sr-only" for="exampleInputPassword3">Password</label>
-          <input required type="password" ng-model="login.userPassword" class="form-control" placeholder="Password" ng-maxlength="30">
+        <div class="fluid ui input icon">
+          <i class="privacy icon"></i>
+          <input required type="password" ng-model="login.userPassword" placeholder="Password" ng-maxlength="30">
         </div>
-        <button ng-disabled="signinFrm.$invalid" role="button" ng-click="login.submitLogin()" type="submit" class="expanded-button ui green button {{loading}}">Sign in</button>
+        <button ng-disabled="signinFrm.$invalid" role="button" ng-click="login.submitLogin()" type="submit" class="ui green button {{loading}} right labeled icon">
+          <i class="sign in icon"></i>
+          Sign in
+        </button>
         <div id="loginResult" ng-if="loginResult" class="alert alert-danger" role="alert">{{loginResult}}</div>
         <!-- <div id="or">OR</div> -->
-        <button role="button" id="signup_button" class="expanded-button ui blue button">Sign up</button>
+        <button role="button" id="signup_button" class="ui blue button right labeled icon">
+          <i class="add user icon"></i>
+          Sign up
+        </button>
       </form>
 
       <aside id="appOnGooglePlay">
@@ -42,22 +43,38 @@
         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
         cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        explaining why signing up. Cool images. etc. </p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
         cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        explaining why signing up. Cool images. etc. </p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
         cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        explaining why signing up. Cool images. etc. </p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
         cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        explaining why signing up. Cool images. etc. </p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        explaining why signing up. Cool images. etc. </p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
       </article>
-  </div>
+  </main>
 
   <footer class="navbar navbar-static-bottom">
       <a role="button" href="//twitter.com/ClassMagnet" class="ui twitter button">
@@ -122,5 +139,6 @@
     </div>
   </section>
 </div>
+<div id="bottom_fill"></div>
 
   <script src="scripts/welcome.js"></script>

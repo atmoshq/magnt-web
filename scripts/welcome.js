@@ -10,25 +10,25 @@ $(function() {
 	function changeSocialButtonsDisplay() {
 		if ($(window).width() <= 470 ) {
 			$('.ui.button.twitter')
-				.addClass('ui-icon');
+				.addClass('icon');
 			$('#twitterLabel').hide();
 			// $('#twitterLabel').css('visibility', 'hidden');
 
 
 			$('.ui.button.facebook')
-				.addClass('ui-icon');
+				.addClass('icon');
 			$('#facebookLabel').hide();
 			// $('#facebookLabel').css('visibility', 'hidden');
 		}
 		else {
 			$('.ui.button.twitter')
-				.removeClass('ui-icon')
+				.removeClass('icon')
 			$('#twitterLabel').show();
 			// $('#twitterLabel').css('visibility', 'visible');
 
 
 			$('.ui.button.facebook')
-				.removeClass('ui-icon')
+				.removeClass('icon')
 			$('#facebookLabel').show();
 			// $('#facebookLabel').css('visibility', 'visible');
 		}
@@ -48,7 +48,8 @@ $(function() {
 	if (~$userAgent.indexOf("android"))
 		isAndroid();
 
-
+	if ($heightDifference > 0)
+		$('#bottom_fill').height($heightDifference);
 
 	/* Events */
 
