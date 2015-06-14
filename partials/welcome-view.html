@@ -10,24 +10,28 @@
   </header>
   <main class="container">
       <form name="signinFrm" class="form-inline" ng-controller="WelcomeView" novalidate>
-        <div class="fluid ui input icon">
-          <i class="at icon"></i>
-          <input id="email_signin" required type="email" ng-model="login.userEmail" placeholder="Enter email" ng-maxlength="40" >
+        <div class="ui center aligned segment">
+          <div class="fluid ui input icon">
+            <i class="user icon"></i>
+            <input id="email_signin" required type="email" ng-model="login.userEmail" placeholder="Enter email" ng-maxlength="40" >
+          </div>
+          <div class="fluid ui input icon">
+            <i class="privacy icon"></i>
+            <input required type="password" ng-model="login.userPassword" placeholder="Password" ng-maxlength="30">
+          </div>
+            <button id="signin_button" ng-disabled="signinFrm.$invalid" role="button" ng-click="login.submitLogin()" type="submit" class="ui green button {{loading}} right labeled icon">
+              <i class="sign in icon"></i>
+              Sign in
+            </button>
+            <div id="loginResult" ng-if="loginResult" class="alert alert-danger" role="alert">{{loginResult}}</div>
+            <div class="ui horizontal divider">
+              Or
+            </div>
+            <button role="button" id="signup_button" class="ui teal button right labeled icon">
+              <i class="add user icon"></i>
+              Sign up
+            </button>
         </div>
-        <div class="fluid ui input icon">
-          <i class="privacy icon"></i>
-          <input required type="password" ng-model="login.userPassword" placeholder="Password" ng-maxlength="30">
-        </div>
-        <button ng-disabled="signinFrm.$invalid" role="button" ng-click="login.submitLogin()" type="submit" class="ui green button {{loading}} right labeled icon">
-          <i class="sign in icon"></i>
-          Sign in
-        </button>
-        <div id="loginResult" ng-if="loginResult" class="alert alert-danger" role="alert">{{loginResult}}</div>
-        <!-- <div id="or">OR</div> -->
-        <button role="button" id="signup_button" class="ui blue button right labeled icon">
-          <i class="add user icon"></i>
-          Sign up
-        </button>
       </form>
 
       <aside id="appOnGooglePlay">
@@ -85,60 +89,64 @@
       </a>
   </footer>
   <div id="black_cover"></div>
-  <section class="panel panel-primary" id="signupLightbox">
-    <div class="panel-heading">
-      <span id="remove_lightbox" class="glyphicon glyphicon-remove pull-right"></span>
+  <section class="panel ui center aligned segment" id="signupLightbox">
+    <div class="panel-heading blue">
+      <span id="remove_lightbox" class="pull-right">
+        <i class="remove large icon"></i>
+      </span>
       <h2> Sign up! </h2>
       <h3>Hey, we just need a little bit of information to get going. We don't share this with anybody.</h3>
     </div>
     <div class="panel-body">
-      <form name="frm" class="form-horizontal" ng-controller="SignupView" novalidate>
+      <form name="frm" class="ui form" ng-controller="SignupView" novalidate>
           <div class="form-group">
             <label for="inputFname" class="col-sm-2 control-label">First Name</label>
-            <div class="col-sm-10">
+            <div class="ui input">
               <input name="fname" required ng-model="signup.userFname" type="text" class="form-control" id="inputFname" placeholder="Jane" ng-minlength="2" ng-maxlength="30">
               <div ng-if="frm.fname.$dirty && frm.fname.$invalid" role="alert">Must be 2 to 30 characters</div>
             </div>
           </div>
           <div class="form-group">
             <label for="inputLname" class="col-sm-2 control-label">Last Name</label>
-            <div class="col-sm-10">
+            <div class="ui input">
               <input name="lname" required ng-model="signup.userLname" type="text" class="form-control" id="inputLname" placeholder="Smith" ng-minlength="2" ng-maxlength="30">
                <div ng-if="frm.lname.$dirty && frm.lname.$invalid" role="alert">Must be 2 to 30 characters</div>
             </div>
           </div>
           <div class="form-group">
             <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-            <div class="col-sm-10">
-              <input name="email" required ng-model="signup.userEmail" type="email" class="form-control" id="inputEmail3" placeholder="jane@magnt.co" ng-maxlength="40" style="border-color: {{signupResult.color}}">
+            <div class="ui input">
+              <input name="email" required ng-model="signup.userEmail" type="email" class="form-control" id="inputEmail3" placeholder="jane@magnt.co" ng-maxlength="40" style="border-color: {{signupResult.emailColor}}">
               <div ng-if="frm.email.$dirty && frm.email.$error.email" role="alert">Must be a valid email</div>
               <div ng-if="frm.email.$dirty && frm.email.$error.maxlength" role="alert">Must be less than 40 characters</div>
             </div>
           </div>
           <div class="form-group">
             <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-            <div class="col-sm-10">
+            <div class="ui input">
               <input name="pass" required ng-model="signup.userPassword" type="password" class="form-control" id="inputPassword3" placeholder="Password" ng-minlength="5" ng-maxlength="30">
               <div ng-if="frm.pass.$dirty && frm.pass.$invalid" role="alert">Must be 5 to 30 characters</div>
             </div>
           </div>
           <div class="form-group">
             <label for="inputConfPassword3" class="col-sm-2 control-label">Confirm Password</label>
-            <div class="col-sm-10">
+            <div class="ui input">
               <input name="cpass" required ng-model="signup.userConfPassword" type="password" class="form-control" id="inputConfPassword3" placeholder="Password" ng-minlength="5" ng-maxlength="30" compare-to="signup.userPassword">
               <div ng-if="frm.cpass.$invalid && frm.cpass.$dirty" role="alert">Passwords do not match.</div>
             </div>
           </div>
           <div class="form-group">
             <div class="col-sm-12">
-              <button ng-disabled="frm.$invalid" ng-click="signup.submitSignup()" type="submit" class="btn btn-default ">Sign up</button>
+              <button ng-disabled="frm.$invalid" ng-click="signup.submitSignup()" type="submit" class="ui green button right labeled icon {{loading}}">
+                <i class="send icon"></i>
+                Sign up
+              </button>
             </div>
           </div>
-          <div id="signupMessage" ng-if="signupResult" class="alert alert-{{signupResult.status}}" role="alert">{{signupResult.message}}</div>
+          <div id="signupMessage" ng-if="signupResult" role="alert" style="color: {{signupResult.color}}">{{signupResult.message}} <i class="icon {{signupResult.status}}"></i></div>
         </form>
     </div>
   </section>
 </div>
-<div id="bottom_fill"></div>
 
-  <script src="scripts/welcome.js"></script>
+<script src="scripts/welcome.js"></script>

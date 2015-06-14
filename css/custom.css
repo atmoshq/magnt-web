@@ -45,6 +45,17 @@ button:focus {
 	margin-bottom: 25px;
 }
 
+#signin_button {
+	margin-top: 6px;
+}
+
+.panel-heading.blue {
+	background-color: #3879d9;
+	color: white;
+	top:0;
+	left:0;
+}
+
 h1 {
 	font-family: 'Arial Black';
 	font-weight: 900;
@@ -120,6 +131,10 @@ article {
 	width: 65%;
 	min-width: 300px;
 	margin: 0 auto;
+}
+
+form[name=signinFrm] > div {
+	background-color: rgba(252,253,252,0.92) !important;
 }
 
 .form-group {
@@ -288,21 +303,33 @@ article {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    border-radius: 8px;
+    padding: 0;
 }
 
 #remove_lightbox
 {
 	display: inline-block; 
-	position: relative; 
-	top:-11px; 
-	right: -16px;
+	position: relative;
+	top: -9px;
+	right: -9px; 
 	background: red;
-	padding-right:11px;
-	padding-top:11px;
-	padding-left:9px;
-	padding-bottom:9px;
+	padding: 7px 4px 9px 6px;
 	border-radius:0 3px 0 8px;
 	cursor: pointer;
+}
+
+section.panel > .panel-heading {
+	border-radius: 8px 8px 0 0;
+}
+
+.panel-heading, .panel-body {
+	padding: 9px;
+}
+
+.panel-body {
+	padding-top: 15px;
+	background-color: rgb(250,250,250);
 }
 
 .panel-heading h3 {
@@ -313,6 +340,7 @@ article {
 .panel-heading h2 {
 	font-family: 'Arial Black';
 	font-weight: 900;
+	margin-top: 0;
 }
 
 #signupLightbox input {

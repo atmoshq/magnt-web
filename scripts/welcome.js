@@ -48,8 +48,6 @@ $(function() {
 	if (~$userAgent.indexOf("android"))
 		isAndroid();
 
-	if ($heightDifference > 0)
-		$('#bottom_fill').height($heightDifference);
 
 	/* Events */
 

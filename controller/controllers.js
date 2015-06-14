@@ -5,25 +5,30 @@ var magntControllers = angular.module('magntControllers', []);
 magntControllers.controller('SignupView', ['$scope', '$http', function($scope, $http){
   $scope.signup = {};
   $scope.signup.submitSignup = function(item, event) {
+    $scope.loading = "loading";
     var signupDetails = {
       userFname: $scope.signup.userFname,
       userLname: $scope.signup.userLname,
       userEmail: $scope.signup.userEmail,
       userPass: $scope.signup.userPassword
     };
+    debugger;
     $http.post('http://api.magnt.co/api/people',
     {fname: signupDetails.userFname, lname: signupDetails.userLname, email: signupDetails.userEmail, password:signupDetails.userPass}).
       success(function(data, status, headers, config){
         if(status == 200) {
-          $scope.signupResult = {color: "transparent", status: "success" , message: "Thanks for making an account!"};
+          $scope.loading = "";
+          $scope.signupResult = {color: "teal", emailColor: "transparent", status: "circle check" , message: "Thanks for making an account!"};
         }
         else {
-          $scope.signupResult = {color: "red", status: "info" , message: "That account already exists. Are you sure you aren't trying to sign in? "};
+          $scope.loading = "";
+          $scope.signupResult = {color: "red", emailColor: "red", status: "remove circle" , message: "That account already exists. Are you sure you aren't trying to sign in?"};
         }
       }).
       error(function(data, status, headers, config){
         if(status === 422){
-          $scope.signupResult = {color: "red", status: "danger" , message: "An account with that email already exists!"};
+          $scope.loading = "";
+          $scope.signupResult = {color: "red", emailColor: "red", status: "remove circle" , message: "An account with that email already exists!"};
         }
       });
   }
